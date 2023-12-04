@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-scheme-1: rgb(0, 0, 0);
+  --color-scheme-1-opacity-03: rgba(0, 0, 0, 0.298);
+  --color-scheme-2: rgb(255, 255, 255);
+  --color-scheme-3: rgb(227, 0, 33);
+  --color-scheme-4: rgb(36, 36, 36);
+  --color-scheme-5: rgb(91, 91, 91);
+  --color-scheme-6: rgb(102, 104, 109);
+
+  --color-1: #2B2D42;
+  --color-2: #818D92;
+  --color-3: #A41623;
+  --color-4: #F85E00;
+  --color-5: #90A959;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+html {
+  font-size: 14px;
+}
+
+main {
+  min-height: 300vh;
+}
+
+.active-opacity:active,
+.hover-opacity:hover {
+  opacity: .5;
+}
