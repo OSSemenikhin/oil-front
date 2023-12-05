@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from 'assets/logo.svg';
@@ -7,11 +6,6 @@ import Actions from './Actions';
 import BottomBar from './BottomBar';
 import BurgerMenu from './BurgerMenu';
 import styles from './Header.module.css';
-
-type INavItem = {
-  title: string,
-  href: string
-}
 
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
@@ -69,21 +63,7 @@ export default function Header() {
               alt="emka"
             />
           </Link>
-          {/* <nav className={
-            [
-              styles.nav,
-              styles['nav--desctop']
-            ].join(' ').trim()
-          }
-          >
-            <ul className={
-              [
-                'flex items-center',
-                styles.nav__list,
-              ].join(' ').trim()
-            }>
-            </ul>
-          </nav> */}
+
           <Actions
             onBurgerClick={() => setMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)}
             onOpenMenuCallack={() => onOpenMenuCallback()}
