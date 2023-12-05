@@ -9,7 +9,6 @@ interface ICButtonWave {
 }
 
 export default function CButtonWave({ children, onClick, buttonClassName, waveClassName }: ICButtonWave) {
-  console.log(buttonClassName, waveClassName);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
