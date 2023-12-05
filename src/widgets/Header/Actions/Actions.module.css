@@ -1,0 +1,28 @@
+.phone,
+.search,
+.cart__icon {
+  color: var(--color-scheme-3);
+}
+
+.phone svg,
+.search svg,
+.cart__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.cart {
+  padding: 0.3rem;
+}
+
+.cart,
+.phone {
+  display: none;
+  z-index: 2;
+
+  @media(min-width: 640px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

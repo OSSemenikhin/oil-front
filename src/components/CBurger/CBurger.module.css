@@ -7,7 +7,15 @@
   background: none;
   border: none;
   cursor: pointer;
+
+  @media(min-width: 1024px) {
+    display: none;
+  }
 }
+
+/* .active.burger {
+  z-index: 1001;
+} */
 
 .bars {
   position: relative;

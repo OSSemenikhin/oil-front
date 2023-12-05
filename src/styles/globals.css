@@ -16,6 +16,9 @@
   --color-3: #A41623;
   --color-4: #F85E00;
   --color-5: #90A959;
+
+  --effect-shadow-1: 0 0 14px 0 var(--color-scheme-1-opacity-03);
+  --effect-shadow-bottom-1: 0 5px 5px -5px var(--color-scheme-1-opacity-03);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -28,6 +31,10 @@
 
 html {
   font-size: 14px;
+
+  @media(min-width: 640px) {
+    font-size: 16px;
+  }
 }
 
 main {
@@ -37,4 +44,12 @@ main {
 .active-opacity:active,
 .hover-opacity:hover {
   opacity: .5;
+}
+
+.hover-brightness {
+  transition: filter .2s ease-in-out;
+}
+
+.hover-brightness:hover {
+  filter: brightness(1.5);
 }

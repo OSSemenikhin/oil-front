@@ -1,0 +1,17 @@
+.menu {
+  /* min-height: calc(100vh - 61px); */
+  min-height: 100vh;
+}
+
+.menu__wrapper {
+  /* top: 61px; */
+  top: 0;
+  margin: unset !important;
+  max-width: unset !important;
+  padding: 0;
+}
+
+.menu__wrapper > * {
+  border-radius: unset !important;
+  padding: 0 !important;
+}
