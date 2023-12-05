@@ -27,7 +27,12 @@ export default forwardRef(function BurgerMenu({ headerHeight, isOpen }: IBurgerM
     >
       <div
         ref={contentRef}
-        className={styles.menu}
+        className={
+          [
+            'container mx-auto sm:px-20',
+            styles.menu,
+          ].join(' ').trim()
+        }
         style={{ paddingTop: `${headerHeight}px` }}
       >
         <RegionList />

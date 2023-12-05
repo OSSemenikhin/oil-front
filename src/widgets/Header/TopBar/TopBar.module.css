@@ -1,0 +1,9 @@
+.bar {
+  display: none;
+  background-color: var(--color-scheme-2);
+  box-shadow: var(--effect-shadow-bottom-1);
+
+  @media(min-width: 1024px) {
+    display: flex;
+  }
+}
