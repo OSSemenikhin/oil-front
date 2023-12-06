@@ -21,12 +21,20 @@ export default function Header() {
     }
   };
 
+  const closeModal = () => {
+    if (window.innerWidth >= 1024) {
+      setMenuOpen(false);
+    }
+  };
+
   useEffect(() => {
     calculateHeight();
     window.addEventListener('resize', calculateHeight);
+    window.addEventListener('resize', closeModal);
 
     return () => {
       window.removeEventListener('resize', calculateHeight);
+      window.removeEventListener('resize', closeModal);
     };
   }, []);
 
