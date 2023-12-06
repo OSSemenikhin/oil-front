@@ -43,7 +43,7 @@ export default function RegionList({ classNameWrapper }: IRegionListProps) {
       </button>
       <Modal
         width={'20rem'}
-        title={(<><EnvironmentOutlined className={styles.region__icon} /> Выберите город</>)}
+        title={(<h2 className={styles.title}>Выберите город</h2>)}
         open={isRegionModalOpen}
         footer={false}
         closable={true}
