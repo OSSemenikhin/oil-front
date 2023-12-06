@@ -8,12 +8,12 @@
 }
 
 .header {
-  padding-top: 78px;
+  /* padding-top: 78px; */
 }
 
 .header__fixed {
   position: fixed;
-  top: 0;
+  /* top: 78px; */
   width: 100%;
   background-color: var(--color-scheme-2);
   overflow: hidden;

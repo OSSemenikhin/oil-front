@@ -5,10 +5,12 @@ import logo from 'assets/logo.svg';
 import NavListDesktop from 'features/NavListDesktop';
 import Actions from './Actions';
 import BottomBar from './BottomBar';
+import TopBar from './TopBar';
 import BurgerMenu from 'widgets/BurgerMenu';
 import styles from './Header.module.css';
 
 export default function Header() {
+  const [topBarHight, setTopBarHeight] = useState<number>(0);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [containerHeight, setContainerHeight] = useState<number>(0);
@@ -67,7 +69,8 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.header__fixed}>
+      <TopBar onMount={(height) => setTopBarHeight(height)}/>
+      <div className={styles.header__fixed} style={{top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px`}}>
         <div
           className={styles['header-background']}
           style={{ height: `${containerHeight - Math.min(scrollPosition, containerHeight)}px` }}
@@ -88,7 +91,7 @@ export default function Header() {
           />
         </div>
       </div>
-      <BottomBar />
+      {/* <BottomBar /> */}
       <BurgerMenu ref={contentRef} headerHeight={containerHeight} isOpen={isMenuOpen} />
     </header >
   )

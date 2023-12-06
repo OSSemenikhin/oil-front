@@ -1,0 +1,4 @@
+.bar {
+  background-color: var(--color-scheme-2);
+  box-shadow: var(--effect-shadow-bottom-1);
+}
