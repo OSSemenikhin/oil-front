@@ -69,7 +69,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <TopBar onMount={(height) => setTopBarHeight(height)} scrollPosition={scrollPosition} />
+      <TopBar onMount={(height) => setTopBarHeight(height)} />
       <div className={styles.header__fixed} style={{ top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px` }}>
         <div
           className={styles['header-background']}

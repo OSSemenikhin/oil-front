@@ -25,7 +25,8 @@
   padding: .5rem 0;
   font-family: 'Oswald';
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 200;
+  text-transform: uppercase;
 
   @media(min-width: 1024px) {
     font-size: 18px;
@@ -37,7 +38,7 @@
 }
 
 .nav__link--red {
-  color: var(--color-scheme-3);
+  color: var(--color-scheme-2);
 }
 
 .nav__link--black {

@@ -2,7 +2,8 @@
   position: relative;
   padding: .5rem 0;
   display: none;
-  background-color: var(--color-scheme-1-opacity-03);
+  background-color: var(--color-scheme-4);
+  /* background-color: var(--color-scheme-1-opacity-03); */
   box-shadow: var(--effect-shadow-bottom-1);
   /* overflow: hidden; */
 
@@ -11,18 +12,19 @@
   }
 }
 
-.background {
+.bar::after {
+  content: '';
   position: absolute;
+  bottom: -10px;
   left: 0;
-  bottom: 0;
+  height: 20px;
   width: 100%;
   background-color: var(--color-scheme-4);
-  /* transform: translateY(100%); */
 }
 
 .region {
   position: relative;
-  color: var(--color-scheme-4);
+  color: var(--color-scheme-3);
 }
 
 .actions {
@@ -32,5 +34,5 @@
 .phone,
 .search,
 .cart {
-  color: var(--color-scheme-4);
+  color: var(--color-scheme-3);
 }
