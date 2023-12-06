@@ -4,7 +4,11 @@ import { EnvironmentOutlined } from '@ant-design/icons';
 import { IRegionList } from 'widgets/Header/types';
 import styles from './RegionLIst.module.css';
 
-export default function RegionList() {
+type IRegionListProps = {
+  classNameWrapper?: string;
+}
+
+export default function RegionList({ classNameWrapper }: IRegionListProps) {
   const regionsListInit: IRegionList = [
     { title: 'Караганда', active: true },
     { title: 'Караганда_2', active: false },
@@ -29,7 +33,7 @@ export default function RegionList() {
 
 
   return (
-    <div className={styles.region}>
+    <div className={classNameWrapper}>
       <button
         className={styles.region__button}
         onClick={() => setRegionModalOpen(true)}

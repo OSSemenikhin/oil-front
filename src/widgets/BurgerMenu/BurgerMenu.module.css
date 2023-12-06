@@ -21,3 +21,8 @@
   padding: 0 !important;
 }
 
+.region {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}

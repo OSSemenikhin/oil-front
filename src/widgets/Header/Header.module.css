@@ -13,7 +13,6 @@
 
 .header__fixed {
   position: fixed;
-  /* top: 78px; */
   width: 100%;
   background-color: var(--color-scheme-2);
   overflow: hidden;
@@ -37,3 +36,15 @@
   }
 }
 
+.actions {
+  column-gap: .3rem;
+  @media(min-width: 1024px) {
+    display: none;
+  }
+}
+
+.phone,
+.search,
+.cart {
+  color: var(--color-scheme-3);
+}

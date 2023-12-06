@@ -3,10 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from 'assets/logo.svg';
 import NavListDesktop from 'features/NavListDesktop';
-import Actions from './Actions';
-import BottomBar from './BottomBar';
-import TopBar from './TopBar';
+import Actions from 'features/Actions';
+import TopBar from '../../features/TopBar';
 import BurgerMenu from 'widgets/BurgerMenu';
+import CBurger from 'components/CBurger';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -64,13 +64,13 @@ export default function Header() {
     }
   }
 
-  const onMenuOutsideClick = (event: MouseEvent) => {}
+  const onMenuOutsideClick = (event: MouseEvent) => { }
 
 
   return (
     <header className={styles.header}>
       <TopBar onMount={(height) => setTopBarHeight(height)} scrollPosition={scrollPosition} />
-      <div className={styles.header__fixed} style={{top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px`}}>
+      <div className={styles.header__fixed} style={{ top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px` }}>
         <div
           className={styles['header-background']}
           style={{ height: `${containerHeight - Math.min(scrollPosition, containerHeight)}px` }}
@@ -83,15 +83,22 @@ export default function Header() {
               alt="emka"
             />
           </Link>
-          <NavListDesktop />
-          <Actions
-            onBurgerClick={() => setMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)}
-            onOpenMenuCallack={() => onOpenMenuCallback()}
-            isMenuOpen={isMenuOpen}
-          />
+          <NavListDesktop scrollPosition={scrollPosition} />
+          <div className='flex gap-x-2'>
+            <Actions
+              classNameWrapper={styles.actions}
+              classNameCartIcon={styles.cart}
+              classNamePhoneIcon={styles.phone}
+              classNameSearchIcon={styles.search}
+            />
+            <CBurger
+              onButtonClick={() => setMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)}
+              isMenuOpen={isMenuOpen}
+              onOpenCallack={() => onOpenMenuCallback()}
+            />
+          </div>
         </div>
       </div>
-      {/* <BottomBar /> */}
       <BurgerMenu ref={contentRef} headerHeight={containerHeight} isOpen={isMenuOpen} />
     </header >
   )

@@ -1,5 +1,6 @@
 .nav {
   padding: .5rem 0;
+  width: 70%;
   display: none;
   border: none !important;
   z-index: 1;
@@ -10,7 +11,7 @@
 }
 
 .nav__item + .nav__item {
-  margin-left: 6rem;
+  margin-left: 2%;
 }
 
 .nav__list {
@@ -22,8 +23,25 @@
 .nav__link {
   position: relative;
   padding: .5rem 0;
+  font-family: 'Oswald';
+  font-size: 16px;
+  font-weight: 400;
+
+  @media(min-width: 1024px) {
+    font-size: 18px;
+  }
+  @media(min-width: 1280px) {
+    letter-spacing: 1px;
+    font-size: 20px;
+  }
+}
+
+.nav__link--red {
   color: var(--color-scheme-3);
-  font-weight: 500;
+}
+
+.nav__link--black {
+  color: var(--color-scheme-4);
 }
 
 /* .nav__link::after {

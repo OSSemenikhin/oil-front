@@ -1,0 +1,36 @@
+.bar {
+  position: relative;
+  padding: .5rem 0;
+  display: none;
+  background-color: var(--color-scheme-1-opacity-03);
+  box-shadow: var(--effect-shadow-bottom-1);
+  /* overflow: hidden; */
+
+  @media(min-width: 1024px) {
+    display: block;
+  }
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--color-scheme-4);
+  /* transform: translateY(100%); */
+}
+
+.region {
+  position: relative;
+  color: var(--color-scheme-4);
+}
+
+.actions {
+  column-gap: 1rem;
+}
+
+.phone,
+.search,
+.cart {
+  color: var(--color-scheme-4);
+}

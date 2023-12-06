@@ -2,10 +2,10 @@ import { PhoneOutlined } from '@ant-design/icons';
 
 type ICPhoneProps = {
   className?: string;
-  iconClassName?: string;
+  classNameIcon?: string;
 }
 
-export default function CPhone({ className, iconClassName }: ICPhoneProps) {
+export default function CPhone({ className, classNameIcon }: ICPhoneProps) {
   return (
       <a href="tel:88005553535"
         className={
@@ -15,7 +15,7 @@ export default function CPhone({ className, iconClassName }: ICPhoneProps) {
           ].join(' ').trim()
         }
       >
-        <PhoneOutlined className={iconClassName}/>
+        <PhoneOutlined className={classNameIcon}/>
       </a>
   );
 }

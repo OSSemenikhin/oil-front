@@ -35,7 +35,7 @@ export default forwardRef(function BurgerMenu({ headerHeight, isOpen }: IBurgerM
         }
         style={{ paddingTop: `${headerHeight}px` }}
       >
-        <RegionList />
+        <RegionList classNameWrapper={styles.region}/>
         <NavListMobile />
       </div>
     </Modal>

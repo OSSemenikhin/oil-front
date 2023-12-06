@@ -4,13 +4,13 @@ import { SearchOutlined } from '@ant-design/icons';
 import styles from './Search.module.css';
 
 type ISearchProps = {
-  wrapperClassName?: string;
-  inputClassName?: string;
-  iconClassName?: string;
-  buttonClassName?: string;
+  classNameWrapper?: string;
+  classNameInput?: string;
+  classNameIcon?: string;
+  classNameButton?: string;
 }
 
-export default function CSearch({ iconClassName, wrapperClassName, inputClassName, buttonClassName }: ISearchProps) {
+export default function CSearch({ classNameIcon, classNameWrapper, classNameInput, classNameButton }: ISearchProps) {
   const [isSearchActive, setSearchActive] = useState<boolean>(false);
   const searchContainerRef = useRef<HTMLInputElement>(null);
   const searchInputRef = useRef<InputRef>(null);
@@ -48,7 +48,7 @@ export default function CSearch({ iconClassName, wrapperClassName, inputClassNam
           'flex content-center',
           styles.search,
           isSearchActive ? styles.active : '',
-          wrapperClassName ?? '',
+          classNameWrapper ?? '',
         ].join(' ').trim()
       }
     >
@@ -58,7 +58,7 @@ export default function CSearch({ iconClassName, wrapperClassName, inputClassNam
           [
             styles.search__input,
             isSearchActive ? styles.active : '',
-            inputClassName ?? '',
+            classNameInput ?? '',
           ].join(' ').trim()
         }
         placeholder="Поиск по сайту ..."
@@ -68,7 +68,7 @@ export default function CSearch({ iconClassName, wrapperClassName, inputClassNam
           [
             'active-opacity hover-brightness',
             styles.search__button,
-            buttonClassName ?? '',
+            classNameButton ?? '',
           ].join(' ').trim()
         }
         onClick={() => handleSearchButton()}
@@ -76,7 +76,7 @@ export default function CSearch({ iconClassName, wrapperClassName, inputClassNam
         <SearchOutlined className={
           [
             styles.search__icon,
-            iconClassName ?? ''
+            classNameIcon ?? ''
           ].join(' ').trim()
         } />
       </button>

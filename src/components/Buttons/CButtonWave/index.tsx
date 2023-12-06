@@ -4,11 +4,11 @@ import styles from './CButtonWave.module.css';
 interface ICButtonWave {
   onClick?: (event: MouseEvent) => void;
   children?: ReactNode;
-  buttonClassName?: string;
+  classNameButton?: string;
   waveClassName?: string;
 }
 
-export default function CButtonWave({ children, onClick, buttonClassName, waveClassName }: ICButtonWave) {
+export default function CButtonWave({ children, onClick, classNameButton, waveClassName }: ICButtonWave) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
@@ -42,7 +42,7 @@ export default function CButtonWave({ children, onClick, buttonClassName, waveCl
       className={
         [
           styles.button,
-          buttonClassName ?? '',
+          classNameButton ?? '',
         ].join(' ').trim()
       }
     >

@@ -2,10 +2,10 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 
 type ICCartProps = {
   className?: string;
-  iconClassName?: string;
+  classNameIcon?: string;
 }
 
-export default function CPhone({ className, iconClassName }: ICCartProps) {
+export default function CPhone({ className, classNameIcon }: ICCartProps) {
   return (
       <button className={
         [
@@ -13,7 +13,7 @@ export default function CPhone({ className, iconClassName }: ICCartProps) {
           className,
         ].join(' ').trim()
       }>
-        <ShoppingCartOutlined className={iconClassName} />
+        <ShoppingCartOutlined className={classNameIcon} />
       </button>
   );
 }

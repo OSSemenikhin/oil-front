@@ -21,15 +21,15 @@
   }
 }
 
-.phone,
-.search,
-.cart__icon {
+/* .phone--red,
+.search--red,
+.cart__icon--red {
   color: var(--color-scheme-3);
 }
 
-.phone,
-.search-wrapper {
-  @media(min-width: 1024px) {
-    display: none;
-  }
-}
+.phone--black,
+.search--black,
+.cart__icon--black {
+  color: var(--color-scheme-4);
+} */
+

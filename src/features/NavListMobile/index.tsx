@@ -162,7 +162,7 @@ export default function NavListMobile() {
         dataSource={list.map(item => item.title)}
         renderItem={(item, index) => (
           <List.Item className={styles.list__item}>
-            <CButtonWave buttonClassName={styles['list-button']} waveClassName={styles['list-button__wave']}>
+            <CButtonWave classNameButton={styles['list-button']} waveClassName={styles['list-button__wave']}>
               <Link
                 className={
                   [
