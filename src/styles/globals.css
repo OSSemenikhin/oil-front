@@ -43,15 +43,17 @@ main {
 
 .active-opacity,
 .hover-opacity {
-  transition: opacity .2s ease-in-out;
+  transition: opacity .2s linear;
 }
 .active-opacity:active,
 .hover-opacity:hover {
-  opacity: .5;
+  opacity: .7;
 }
 
 .hover-brightness {
-  transition: filter .2s ease-in-out;
+  transition-property: filter, opacity;
+  transition-duration: .2s;
+  transition-timing-function: linear;
 }
 
 .hover-brightness:hover {

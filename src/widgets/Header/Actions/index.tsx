@@ -12,8 +12,8 @@ type IActionsProps = {
 
 export default function Actions({ onBurgerClick, isMenuOpen, onOpenMenuCallack }: IActionsProps) {
   return (
-    <div className='flex justify-between items-center basis-20 sm:basis-2/6 lg:basis-36'>
-      <Search iconClassName={styles.search} />
+    <div className='flex justify-between items-center basis-20 sm:basis-2/6 lg:basis-0'>
+      <Search wrapperClassName={styles['search-wrapper']} iconClassName={styles.search} />
       <CPhone className={styles.phone} />
       <Cart className={styles.cart} iconClassName={styles.cart__icon}/>
       <CBurger onButtonClick={() => onBurgerClick()} isMenuOpen={isMenuOpen} onOpenCallack={() => onOpenMenuCallack()} />

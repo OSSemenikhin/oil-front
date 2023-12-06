@@ -2,9 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from 'assets/logo.svg';
+import NavListDesktop from 'features/NavListDesktop';
 import Actions from './Actions';
 import BottomBar from './BottomBar';
-import BurgerMenu from './BurgerMenu';
+import BurgerMenu from 'widgets/BurgerMenu';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -79,7 +80,7 @@ export default function Header() {
               alt="emka"
             />
           </Link>
-
+          <NavListDesktop />
           <Actions
             onBurgerClick={() => setMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)}
             onOpenMenuCallack={() => onOpenMenuCallback()}

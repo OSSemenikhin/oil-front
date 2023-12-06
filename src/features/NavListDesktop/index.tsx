@@ -1,16 +1,14 @@
-import { MenuProps, Menu, List, ConfigProvider } from 'antd';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { RightOutlined } from '@ant-design/icons';
-import CButtonWave from 'components/Buttons/CButtonWave';
-import { INavList } from 'widgets/Header/types';
+import { Dropdown } from 'antd';
+import { INavList, INavLink } from 'widgets/Header/types';
 import styles from './NavListDesktop.module.css'
-
-type MenuItem = Required<MenuProps>['items'][number];
 
 export default function NavListDesktop() {
   const list: INavList = [
     {
-      title: 'Пункт_1',
+      title: 'Пункт_1 Масла',
       href: '#',
       subItems: [
         {
@@ -28,7 +26,7 @@ export default function NavListDesktop() {
       ],
     },
     {
-      title: 'Пункт_2',
+      title: 'Автомобили Пункт_2',
       href: '#',
       subItems: [
         {
@@ -46,43 +44,7 @@ export default function NavListDesktop() {
       ],
     },
     {
-      title: 'Пункт_3',
-      href: '#',
-      subItems: [
-        {
-          title: 'Подпункт_1',
-          href: '#',
-        },
-        {
-          title: 'Подпункт_2',
-          href: '#',
-        },
-        {
-          title: 'Подпункт_3',
-          href: '#',
-        }
-      ],
-    },
-    {
-      title: 'O нас',
-      href: '#',
-      subItems: [
-        {
-          title: 'Подпункт_1',
-          href: '#',
-        },
-        {
-          title: 'Подпункт_2',
-          href: '#',
-        },
-        {
-          title: 'Подпункт_3',
-          href: '#',
-        }
-      ],
-    },
-    {
-      title: 'Доставка',
+      title: 'Мотоциклы Пункт_3',
       href: '#',
       subItems: [
         {
@@ -101,83 +63,68 @@ export default function NavListDesktop() {
     },
   ];
 
-  function getItem(
-    label: React.ReactNode,
-    key?: React.Key | null,
-    children?: MenuItem[],
-    type?: 'group',
-  ): MenuItem {
-    return {
-      key,
-      children,
-      label,
-      type,
-    } as MenuItem;
-  }
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState<boolean[]>(list.map(item => false));
+  const [defaultPosition, setDefaultPosition] = useState<string>('0_0_subItem');
 
-  const getSubItems = (items: INavList, itemIndex: number): MenuItem[] => {
-    return items.map((subItem, subItemIndex) => {
-      return getItem(subItem.title, `${itemIndex}_${subItemIndex}_subItem`)
+  const handleOpenChange = (nextOpen: any, info: any, itemIndex: number) => {
+    const opened = isOpen.map((item, index) => index === itemIndex ? nextOpen : false);
+    setIsOpen(opened);
+  };
+
+  const getSubItems = (items: INavList, itemIndex: number) => {
+    return items.map((item, index) => {
+      const key = `${itemIndex}_${index}_subItem`;
+      return {
+        label: item.title,
+        key: key,
+        onClick: () => {
+          setDefaultPosition(key);
+          router.push(`/${item.href}`);
+        },
+      };
     });
   }
 
-  const menuItems: MenuProps['items'] = list.map((item, itemIndex) => {
-    return getItem(
-      item.title,
-      `${itemIndex}_item`,
-      item.subItems ? getSubItems(item.subItems, itemIndex) : undefined,
-    )
-  });
+  const getListItem = (item: INavLink, index: number) => {
+    if (item.subItems) return (
+      <Dropdown
+        overlayClassName={styles.overlay}
+        menu={{
+          items: getSubItems(item.subItems, index),
+          selectable: true,
+          defaultSelectedKeys: [defaultPosition]
+        }}
+        // buttonsRender={() => ['1'].map(i => <button>{i}</button>) }
+        onOpenChange={(nextOpen, info) => handleOpenChange(nextOpen, info, index)}
+        open={isOpen[index]}
+      >
+        <Link href={item.href} className={styles.nav__link}>{item.title}</Link>
+      </Dropdown>
+    );
 
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-  };
-
+    return <Link href={item.href} className={styles.nav__link}>{item.title}</Link>;
+  }
 
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Menu: {
-            itemColor: 'rgb(227, 0, 33)',
-            itemHoverBg: 'rgba(36, 36, 36, 0.23)',
-            itemSelectedBg: 'rgb(36, 36, 36)',
-            itemSelectedColor: 'rgb(227, 0, 33)',
-          }
+    <nav className={styles.nav}>
+      <ul className={styles.nav__list}>
+        {
+          list.map((item, index) => (
+            <li
+              key={`${index}_nav`}
+              className={
+                [
+                  'hover-brightness active-opacity',
+                  styles.nav__item,
+                ].join(' ').trim()
+              }
+            >
+              {getListItem(item, index)}
+            </li>
+          ))
         }
-      }}
-    >
-      {/* <Menu
-            style={{ width: '100vw' }}
-            theme={'light'}
-            onClick={onClick}
-            mode="inline"
-            // selectedKeys={[current]}
-            items={menuItems}
-          /> */}
-      <List
-        className={styles.list}
-        size="large"
-        bordered
-        dataSource={list.map(item => item.title)}
-        renderItem={(item, index) => (
-          <List.Item className={styles.list__item}>
-            <CButtonWave buttonClassName={styles['list-button']} waveClassName={styles['list-button__wave']}>
-              <Link
-                className={
-                  [
-                    'px-5 py-5',
-                    styles.link,
-                  ].join(' ').trim()
-                }
-                href={list[index].href}
-              >{item}
-                <RightOutlined className={styles.link__icon} />
-              </Link>
-            </CButtonWave>
-          </List.Item>
-        )}
-      />
-    </ConfigProvider>
+      </ul>
+    </nav>
   );
 };

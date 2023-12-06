@@ -1,9 +1,3 @@
-.phone,
-.search,
-.cart__icon {
-  color: var(--color-scheme-3);
-}
-
 .phone svg,
 .search svg,
 .cart__icon svg {
@@ -24,5 +18,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+.phone,
+.search,
+.cart__icon {
+  color: var(--color-scheme-3);
+}
+
+.phone,
+.search-wrapper {
+  @media(min-width: 1024px) {
+    display: none;
   }
 }
