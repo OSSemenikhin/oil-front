@@ -8,7 +8,7 @@ type IBurgerProps = {
 }
 
 export default function Burger({ onButtonClick, isMenuOpen, onOpenCallack }: IBurgerProps) {
-  const animationSpeed = 75;
+  const animationSpeed = 100;
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isAnimation, setIsAnimation] = useState<boolean>(false);
   const [isDelay, setDelay] = useState<boolean>(false);

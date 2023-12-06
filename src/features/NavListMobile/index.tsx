@@ -1,4 +1,4 @@
-import { MenuProps, List, ConfigProvider } from 'antd';
+import { MenuProps, Menu, List, ConfigProvider } from 'antd';
 import Link from 'next/link';
 import { RightOutlined } from '@ant-design/icons';
 import CButtonWave from 'components/Buttons/CButtonWave';
@@ -7,7 +7,7 @@ import styles from './NavList.module.css'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
-export default function NavList() {
+export default function NavListMobile() {
   const list: INavList = [
     {
       title: 'Пункт_1',
@@ -158,8 +158,6 @@ export default function NavList() {
       <List
         className={styles.list}
         size="large"
-        // header={<div style={{marginTop: '30px'}}>List</div>}
-        // footer={<div>Footer</div>}
         bordered
         dataSource={list.map(item => item.title)}
         renderItem={(item, index) => (
@@ -168,6 +166,7 @@ export default function NavList() {
               <Link
                 className={
                   [
+                    'px-5 py-5',
                     styles.link,
                   ].join(' ').trim()
                 }

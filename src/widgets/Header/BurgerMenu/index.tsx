@@ -1,7 +1,7 @@
 import { useRef, forwardRef, useImperativeHandle } from 'react';
 import { Modal } from 'antd';
+import NavListMobile from 'features/NavListMobile';
 import RegionList from './RegionList';
-import NavList from './NavList';
 import styles from './BurgerMenu.module.css'
 
 type IBurgerMenu = {
@@ -36,7 +36,7 @@ export default forwardRef(function BurgerMenu({ headerHeight, isOpen }: IBurgerM
         style={{ paddingTop: `${headerHeight}px` }}
       >
         <RegionList />
-        <NavList />
+        <NavListMobile />
       </div>
     </Modal>
   );

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { InputRef, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import styles from './CSearch.module.css';
+import styles from './Search.module.css';
 
 type ISearchProps = {
   wrapperClassName?: string;
