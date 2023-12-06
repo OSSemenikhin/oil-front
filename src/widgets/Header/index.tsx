@@ -14,13 +14,14 @@ export default function Header() {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
+  const calculateHeight = () => {
+    if (containerRef.current) {
+      const height = containerRef.current.getBoundingClientRect().height;
+      setContainerHeight(height);
+    }
+  };
+
   useEffect(() => {
-    const calculateHeight = () => {
-      if (containerRef.current) {
-        const height = containerRef.current.getBoundingClientRect().height;
-        setContainerHeight(height);
-      }
-    };
     calculateHeight();
     window.addEventListener('resize', calculateHeight);
 
@@ -41,8 +42,15 @@ export default function Header() {
     };
   }, []);
 
+  useEffect(() => {
+  }, [scrollPosition, containerHeight]);
+
   const onOpenMenuCallback = () => {
-    console.log('burger menu opened');
+    if (scrollPosition < containerHeight / 2) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    } else if (scrollPosition >= containerHeight / 2 && scrollPosition < containerHeight) {
+      window.scrollTo({ top: containerHeight, behavior: 'auto' });
+    }
   }
 
   const onMenuOutsideClick = (event: MouseEvent) => {}
