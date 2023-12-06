@@ -31,7 +31,6 @@ export default function RegionList({ classNameWrapper }: IRegionListProps) {
     setRegionModalOpen(false);
   }
 
-
   return (
     <div className={classNameWrapper}>
       <button
