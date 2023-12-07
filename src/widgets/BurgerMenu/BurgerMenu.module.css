@@ -1,14 +1,8 @@
-.menu-container {
-  @media(min-width: 1024px) {
-    display: none;
-  }
-}
-
 .menu {
   min-height: 100vh;
 }
 
-.menu__wrapper {
+.wrapper {
   top: 0;
   margin: unset !important;
   max-width: unset !important;
@@ -16,7 +10,7 @@
 
 }
 
-.menu__wrapper > * {
+.wrapper > * {
   border-radius: unset !important;
   padding: 0 !important;
 }

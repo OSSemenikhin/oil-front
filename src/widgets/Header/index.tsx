@@ -70,9 +70,9 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <TopBar onMount={(height) => setTopBarHeight(height)} />
-      <div className={styles.header__fixed} style={{ top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px` }}>
+      <div className={styles.fixed} style={{ top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px` }}>
         <div
-          className={styles['header-background']}
+          className={styles.background}
           style={{ height: `${containerHeight - Math.min(scrollPosition, containerHeight)}px` }}
         ></div>
         <div ref={containerRef} className="container flex justify-between items-center mx-auto px-5 py-3">

@@ -1,6 +1,6 @@
 .phone svg,
 .search svg,
-.cart__icon svg {
+.cartIcon svg {
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -23,13 +23,13 @@
 
 /* .phone--red,
 .search--red,
-.cart__icon--red {
+.cartIcon--red {
   color: var(--color-scheme-3);
 }
 
 .phone--black,
 .search--black,
-.cart__icon--black {
+.cartIcon--black {
   color: var(--color-scheme-4);
 } */
 

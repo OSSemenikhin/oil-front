@@ -161,8 +161,8 @@ export default function NavListMobile() {
         bordered
         dataSource={list.map(item => item.title)}
         renderItem={(item, index) => (
-          <List.Item className={styles.list__item}>
-            <CButtonWave classNameButton={styles['list-button']} waveClassName={styles['list-button__wave']}>
+          <List.Item className={styles.item}>
+            <CButtonWave classNameButton={styles.button} waveClassName={styles.wbutton}>
               <Link
                 className={
                   [
@@ -172,7 +172,7 @@ export default function NavListMobile() {
                 }
                 href={list[index].href}
               >{item}
-                <RightOutlined className={styles.link__icon} />
+                <RightOutlined className={styles.icon} />
               </Link>
             </CButtonWave>
           </List.Item>

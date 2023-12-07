@@ -37,7 +37,7 @@ export default function Actions({ classNameWrapper, classNameCartIcon, className
         className={styles.cart}
         classNameIcon={
           [
-            styles.cart__icon,
+            styles.cartIcon,
             classNameCartIcon,
           ].join(' ').trim()
         }

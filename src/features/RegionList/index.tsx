@@ -37,7 +37,7 @@ export default function RegionList({ classNameWrapper }: IRegionListProps) {
         className={styles.region__button}
         onClick={() => setRegionModalOpen(true)}
       >
-        <EnvironmentOutlined className={styles.region__icon} />
+        <EnvironmentOutlined className={styles.icon} />
         <span className={styles.tegion__title}>Город: {currentCity}</span>
       </button>
       <Modal
@@ -55,7 +55,7 @@ export default function RegionList({ classNameWrapper }: IRegionListProps) {
                 <button
                   className={
                     [
-                      styles.region__item,
+                      styles.item,
                       item.active ? styles.active : '',
                       'hover-opacity',
                     ].join(' ').trim()
@@ -63,9 +63,9 @@ export default function RegionList({ classNameWrapper }: IRegionListProps) {
                   onClick={() => changeRegion(index)}
                 >
                   <EnvironmentOutlined
-                    className={styles.region__icon}
+                    className={styles.icon}
                   />
-                  <span className={styles.region__title}>
+                  <span className={styles.title}>
                     {item.title}
                   </span>
                 </button>

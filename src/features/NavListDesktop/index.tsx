@@ -121,18 +121,17 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
   const getListItem = (item: INavLink, index: number) => {
     if (item.subItems) return (
       <>
-        {renderLink(item.href, item.title, [styles.nav__link, styles[`nav__link--${lisnksColor}`]].join(' '))}
-        <div className={styles['sub-list-wrapper']}>
+        {renderLink(item.href, item.title, [styles.link, styles[`link--${lisnksColor}`]].join(' '))}
+        <div className={styles.subListWrapper}>
           <ul className={
             [
               'container mx-auto px-5 flex justify-center',
-              styles['sub-list'],
+              styles.subList,
             ].join(' ').trim()
           }>
             {item.subItems.map((subItem, subItemIndex) => (
-              <li key={`${index}_${subItemIndex}_subItem`} className={styles['sub-item']}>
-                {renderLink(subItem.href, subItem.title, styles['sub-link'])}
-                {/* {renderLink(subItem.href, subItem.title, [styles['sub-link'], styles[`sub-link--${lisnksColor}`]].join(' '))} */}
+              <li key={`${index}_${subItemIndex}_subItem`} className={styles.subItem}>
+                {renderLink(subItem.href, subItem.title, styles.subLink)}
               </li>
             ))}
           </ul>
@@ -140,17 +139,17 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
       </>
     );
 
-    return renderLink(item.href, item.title, styles.nav__link);
+    return renderLink(item.href, item.title, styles.link);
   }
 
   return (
     <nav className={styles.nav}>
-      <ul ref={listRef} className={styles.nav__list}>
+      <ul ref={listRef} className={styles.navList}>
         {
           list.map((item, index) => (
             <li
               key={`${index}_nav`}
-              className={styles.nav__item}
+              className={styles.navItem}
             >
               {getListItem(item, index)}
             </li>

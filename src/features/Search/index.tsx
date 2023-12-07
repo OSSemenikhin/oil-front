@@ -56,7 +56,7 @@ export default function CSearch({ classNameIcon, classNameWrapper, classNameInpu
         ref={searchInputRef}
         className={
           [
-            styles.search__input,
+            styles.input,
             isSearchActive ? styles.active : '',
             classNameInput ?? '',
           ].join(' ').trim()
@@ -67,7 +67,7 @@ export default function CSearch({ classNameIcon, classNameWrapper, classNameInpu
         className={
           [
             'active-opacity hover-brightness',
-            styles.search__button,
+            styles.button,
             classNameButton ?? '',
           ].join(' ').trim()
         }
@@ -75,7 +75,7 @@ export default function CSearch({ classNameIcon, classNameWrapper, classNameInpu
       >
         <SearchOutlined className={
           [
-            styles.search__icon,
+            styles.icon,
             classNameIcon ?? ''
           ].join(' ').trim()
         } />

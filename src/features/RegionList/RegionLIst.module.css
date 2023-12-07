@@ -8,19 +8,19 @@
   font-size: 18px;
 }
 
-.region__item {
+.item {
   padding: .5rem 0;
 }
 
-.region__icon {
+.icon {
   margin-right: .5rem;
 }
 
-.region__title {
+.title {
   font-size: 16px;
 }
 
-.active .region__title,
-.active .region__icon {
+.active .title,
+.active .icon {
   color: var(--color-scheme-3);
 }

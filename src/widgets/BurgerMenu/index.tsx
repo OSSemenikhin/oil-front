@@ -18,7 +18,7 @@ export default forwardRef(function BurgerMenu({ headerHeight, isOpen }: IBurgerM
 
   return (
     <Modal
-      className={styles.menu__wrapper}
+      className={styles.wrapper}
       wrapClassName={styles.menu}
       open={isOpen}
       width='100vw'
