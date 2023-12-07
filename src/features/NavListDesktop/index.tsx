@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Dropdown } from 'antd';
 import { INavList, INavLink } from 'widgets/Header/types';
 import styles from './NavListDesktop.module.css'
 
@@ -85,56 +83,34 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
     },
   ];
 
-  const router = useRouter();
-  const [isOpen, setIsOpen] = useState<boolean[]>(list.map(item => false));
-  const [defaultPosition, setDefaultPosition] = useState<string>('0_0_subItem');
-  const [lisnksColor, setLinksColor] = useState<'red' | 'black'>('red');
+  const [lisnksColor, setLinksColor] = useState<'black' | 'white'>('black');
   const listRef = useRef<HTMLUListElement>(null);// }
 
   useEffect(() => {
     if (!listRef.current) return;
     const listHeight = listRef.current.getBoundingClientRect().height;
     switch (lisnksColor) {
-      case 'red':
+      case 'black':
         if (listHeight + 14 < scrollPosition) {
-          setLinksColor('black');
+          setLinksColor('white');
         }
         break;
-      case 'black':
+      case 'white':
         if (listHeight + 10 > scrollPosition) {
-          setLinksColor('red');
+          setLinksColor('black');
         }
         break;
     }
   }, [scrollPosition, lisnksColor])
 
-  const handleOpenChange = (nextOpen: any, info: any, itemIndex: number) => {
-    const opened = isOpen.map((item, index) => index === itemIndex ? nextOpen : false);
-    setIsOpen(opened);
-  };
-
-  const getSubItems = (items: INavList, itemIndex: number) => {
-    return items.map((item, index) => {
-      const key = `${itemIndex}_${index}_subItem`;
-      return {
-        label: item.title,
-        key: key,
-        onClick: () => {
-          setDefaultPosition(key);
-          router.push(`/${item.href}`);
-        },
-      };
-    });
-  }
-
-  const renderLink = (href: string, title: string) => {
+  const renderLink = (href: string, title: string, className: string) => {
     return (
       <Link
         href={href}
         className={
           [
-            styles.nav__link,
-            styles[`nav__link--${lisnksColor}`]
+            'hover-brightness active-opacity',
+            className,
           ].join(' ').trim()
         }>
         {title}
@@ -144,22 +120,27 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
 
   const getListItem = (item: INavLink, index: number) => {
     if (item.subItems) return (
-      <Dropdown
-        trigger={['click', 'hover']}
-        overlayClassName={styles.overlay}
-        menu={{
-          items: getSubItems(item.subItems, index),
-          selectable: true,
-          defaultSelectedKeys: [defaultPosition]
-        }}
-        onOpenChange={(nextOpen, info) => handleOpenChange(nextOpen, info, index)}
-        open={isOpen[index]}
-      >
-        {renderLink(item.href, item.title)}
-      </Dropdown>
+      <>
+        {renderLink(item.href, item.title, [styles.nav__link, styles[`nav__link--${lisnksColor}`]].join(' '))}
+        <div className={styles['sub-list-wrapper']}>
+          <ul className={
+            [
+              'container mx-auto px-5 flex justify-center',
+              styles['sub-list'],
+            ].join(' ').trim()
+          }>
+            {item.subItems.map((subItem, subItemIndex) => (
+              <li key={`${index}_${subItemIndex}_subItem`} className={styles['sub-item']}>
+                {renderLink(subItem.href, subItem.title, styles['sub-link'])}
+                {/* {renderLink(subItem.href, subItem.title, [styles['sub-link'], styles[`sub-link--${lisnksColor}`]].join(' '))} */}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
     );
 
-    return renderLink(item.href, item.title);
+    return renderLink(item.href, item.title, styles.nav__link);
   }
 
   return (
@@ -169,12 +150,7 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
           list.map((item, index) => (
             <li
               key={`${index}_nav`}
-              className={
-                [
-                  'hover-brightness active-opacity',
-                  styles.nav__item,
-                ].join(' ').trim()
-              }
+              className={styles.nav__item}
             >
               {getListItem(item, index)}
             </li>

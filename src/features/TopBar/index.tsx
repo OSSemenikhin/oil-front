@@ -19,7 +19,12 @@ export default function TopBar({ onMount }: ITopBarProps) {
   return (
     <div ref={topBarRef} className={styles.bar}>
       <div className='container mx-auto px-5 flex justify-between items-center'>
-        <RegionList classNameWrapper={styles.region} />
+        <RegionList classNameWrapper={
+          [
+            styles.region,
+            'hover-brightness'
+          ].join(' ').trim()
+        } />
         <Actions
           classNameWrapper={styles.actions}
           classNameCartIcon={styles.cart}

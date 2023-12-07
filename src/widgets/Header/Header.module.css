@@ -5,6 +5,7 @@
   height: 61px;
   width: 100vw;
   background-color: var(--color-scheme-4);
+  /* transition: height .2s ease-in-out; */
 
   @media(min-width: 1024px) {
     background-color: var(--color-scheme-1);
@@ -19,7 +20,7 @@
   position: fixed;
   width: 100vw;
   background-color: var(--color-scheme-2);
-  overflow: hidden;
+  /* overflow: hidden; */
   z-index: 2;
   box-shadow: var(--effect-shadow-bottom-1);
 }

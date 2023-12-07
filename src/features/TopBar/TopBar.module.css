@@ -4,16 +4,14 @@
   padding: .5rem 0;
   display: none;
   background-color: var(--color-scheme-4);
-  /* background-color: var(--color-scheme-1-opacity-03); */
-  box-shadow: var(--effect-shadow-bottom-1);
-  /* overflow: hidden; */
+  box-shadow: 0px 42px 0px 0px var(--color-scheme-4);
 
   @media(min-width: 1024px) {
     display: block;
   }
 }
 
-.bar::after {
+/* .bar::after {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -21,7 +19,7 @@
   height: 20px;
   width: 100vw;
   background-color: var(--color-scheme-4);
-}
+} */
 
 .region {
   position: relative;
