@@ -17,11 +17,11 @@
   z-index: 3 !important;
 
   @media(min-width: 1024px) {
-    transform: translateX(227px);
+    transform: translateX(228px);
   }
 
   @media(min-width: 1280px) {
-    transform: translateX(274px);
+    transform: translateX(275px);
   }
 
   @media(min-width: 1536px) {
