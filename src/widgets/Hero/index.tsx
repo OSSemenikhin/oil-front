@@ -13,8 +13,26 @@ type TPaginationOptions = {
   renderBullet: (index: number, className: string) => string;
 };
 
+type TSlide = {
+  path: string;
+  titleMobile: string;
+  titleDesktop: string;
+  href?: string;
+}
+
 export default function Hero() {
-  const slides: string[] = ['slide1.jpg', 'slide2.jpg'];
+  const slides: TSlide[] = [
+    {
+      path: 'slide1.jpg',
+      titleMobile: 'Lorem, ipsum dolor.',
+      titleDesktop: 'Lorem ipsum, dolor sit amet consectetur adipisicing.',
+    },
+    {
+      path: 'slide2.jpg',
+      titleMobile: 'Lorem, ipsum.',
+      titleDesktop: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem.',
+    }
+  ];
 
   const [width, setWidth] = useState<number>(0);
 
@@ -38,9 +56,10 @@ export default function Hero() {
     <div className={styles.hero}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-        autoplay={{delay: 5000}}
+        autoplay={{delay: 5000, disableOnInteraction: true}}
         spaceBetween={50}
         slidesPerView={1}
+        loop={true}
         pagination={paginationOptions}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
@@ -50,11 +69,15 @@ export default function Hero() {
             <SwiperSlide key={`${index}_slide`}>
               <Image
                 className={styles.image}
-                src={`/img/hero/${slide}`}
+                src={`/img/hero/${slide.path}`}
                 alt="Description of the image"
                 width={width}
                 height={width}
               />
+              <div className={styles.content}>
+                <h2 className={styles.titleMobile}>{slide.titleMobile}</h2>
+                <h2 className={styles.titleDesktop}>{slide.titleDesktop}</h2>
+              </div>
             </SwiperSlide>
           ))
         }

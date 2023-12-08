@@ -1,4 +1,5 @@
 .hero {
+  position: relative;
   padding-top: 4.3rem;
 
   @media(min-width: 640px) {
@@ -29,5 +30,33 @@
 
   @media(min-width: 1280px) {
     min-height: 446px;
+  }
+}
+
+.content {
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
+  padding: 1rem;
+  background-color: var(--color-scheme-1);
+  color: var(--color-scheme-2);
+
+  @media(min-width: 1024px) {
+    right: 10%;
+    bottom: 7rem;
+  }
+}
+
+.titleMobile {
+  @media(min-width: 1024px) {
+    display: none;
+  }
+}
+
+.titleDesktop {
+  display: none;
+
+  @media(min-width: 1024px) {
+    display: block;
   }
 }
