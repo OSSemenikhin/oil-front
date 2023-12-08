@@ -1,0 +1,33 @@
+.hero {
+  padding-top: 4.3rem;
+
+  @media(min-width: 640px) {
+    padding-top: 4.2rem;
+  }
+
+  @media(min-width: 1024px) {
+    padding-top: 4.9rem;
+  }
+}
+
+.image {
+  min-height: 190px;
+  object-fit: cover;
+  object-position: 25%;
+
+  @media(min-width: 640px) {
+    min-height: 256px;
+  }
+
+  @media(min-width: 640px) {
+    min-height: 256px;
+  }
+
+  @media(min-width: 1024px) {
+    min-height: 319px;
+  }
+
+  @media(min-width: 1280px) {
+    min-height: 446px;
+  }
+}

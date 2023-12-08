@@ -1,0 +1,12 @@
+.hero-bullet {
+  width: 2rem;
+  height: 5px;
+  background-color: var(--color-scheme-6);
+  border-radius: 0;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active.hero-bullet {
+  background-color: var(--color-scheme-1);
+  border: 1px solid var(--color-scheme-6);
+}
