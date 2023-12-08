@@ -1,5 +1,6 @@
 .hero {
   position: relative;
+  width: 100vw;
   padding-top: 4.3rem;
 
   @media(min-width: 640px) {
