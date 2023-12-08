@@ -42,7 +42,7 @@
   color: var(--color-scheme-2);
 
   @media(min-width: 1024px) {
-    right: 10%;
+    right: 10rem;
     bottom: 7rem;
   }
 }

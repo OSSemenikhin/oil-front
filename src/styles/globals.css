@@ -59,10 +59,6 @@ body {
   overflow-x: hidden;
 }
 
-main {
-  min-height: 300vh;
-}
-
 .active-opacity,
 .hover-opacity {
   transition: opacity .2s linear;

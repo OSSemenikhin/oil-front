@@ -97,7 +97,7 @@
 
 .subLink::after,
 .link::after {
-  background-color: var(--color-scheme-2);
+  background-color: var(--color-4);
 }
 
 .subLink:hover::after,
