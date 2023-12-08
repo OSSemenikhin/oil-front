@@ -1,0 +1,11 @@
+.ant-collapse-expand-icon {
+  @media(min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.ant-collapse-header {
+  @media(min-width: 768px) {
+    cursor: default !important;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { TNavList, TNavLink } from 'widgets/Header/types';
+import { TNavLink } from 'features/types';
 import styles from './NavListDesktop.module.css'
 
 type TNavListDesktopProps = {
@@ -8,7 +8,7 @@ type TNavListDesktopProps = {
 }
 
 export default function NavListDesktop({ scrollPosition, }: TNavListDesktopProps) {
-  const list: TNavList = [
+  const list: TNavLink[] = [
     {
       title: 'Пункт_1 Масла',
       href: '#',

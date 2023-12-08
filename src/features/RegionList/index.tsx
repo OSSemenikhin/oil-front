@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Modal } from 'antd';
 import { EnvironmentOutlined } from '@ant-design/icons';
-import { TRegionList } from 'widgets/Header/types';
+import { TRegion } from 'features/types';
 import styles from './RegionLIst.module.css';
 
 type TRegionListProps = {
@@ -9,7 +9,7 @@ type TRegionListProps = {
 }
 
 export default function RegionList({ classNameWrapper }: TRegionListProps) {
-  const regionsListInit: TRegionList = [
+  const regionsListInit: TRegion[] = [
     { title: 'Караганда', active: true },
     { title: 'Караганда_2', active: false },
     { title: 'Караганда_3', active: false },
@@ -19,7 +19,7 @@ export default function RegionList({ classNameWrapper }: TRegionListProps) {
 
   const [isRegionModalOpen, setRegionModalOpen] = useState<boolean>(false);
   const [currentCity, setCurrentCity] = useState<string>('Караганда');
-  const [regionsList, setRegionsList] = useState<TRegionList>(regionsListInit);
+  const [regionsList, setRegionsList] = useState<TRegion[]>(regionsListInit);
 
   const changeRegion = (index: number) => {
     const updatedList = regionsList.map((item, itemIndex) => ({

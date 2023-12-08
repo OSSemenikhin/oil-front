@@ -42,9 +42,14 @@
   color: var(--color-scheme-2);
 
   @media(min-width: 1024px) {
-    right: 10rem;
+    right: 10%;
     bottom: 7rem;
   }
+}
+
+.titleDesktop,
+.titleMobile {
+  display: block;
 }
 
 .titleMobile {

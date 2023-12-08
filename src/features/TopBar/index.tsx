@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { TNavList } from 'widgets/Header/types';
+import { TNavList } from 'features/types';
 import RegionList from 'features/RegionList';
 import Actions from 'features/Actions';
 import styles from './TopBar.module.css';

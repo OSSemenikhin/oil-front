@@ -57,9 +57,10 @@ export default function Hero() {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         autoplay={{delay: 5000, disableOnInteraction: true}}
-        spaceBetween={50}
+        spaceBetween={0}
         slidesPerView={1}
         loop={true}
+        speed={2000}
         pagination={paginationOptions}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}

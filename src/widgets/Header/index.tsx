@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from 'assets/logo.svg';
+import logo from 'assets/logo-red.svg';
 import NavListDesktop from 'features/NavListDesktop';
 import Actions from 'features/Actions';
 import TopBar from '../../features/TopBar';

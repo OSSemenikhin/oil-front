@@ -46,13 +46,16 @@
 
 html {
   font-size: 14px;
-  font-family: 'Montserrat';
   scroll-behavior: auto;
   scroll-snap-type: y mandatory;
 
   @media(min-width: 640px) {
     font-size: 16px;
   }
+}
+
+html * {
+  font-family: 'Montserrat';
 }
 
 body {
@@ -76,6 +79,10 @@ body {
 
 .hover-brightness:hover {
   filter: brightness(1.7);
+}
+
+.hover-underline {
+  position: relative;
 }
 
 .hover-underline::after {
