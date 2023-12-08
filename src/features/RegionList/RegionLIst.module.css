@@ -5,7 +5,7 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 .item {
@@ -16,8 +16,8 @@
   margin-right: .5rem;
 }
 
-.title {
-  font-size: 16px;
+.itemTitle {
+  font-size: 1rem;
 }
 
 .active .title,

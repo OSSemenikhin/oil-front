@@ -65,7 +65,7 @@ export default function RegionList({ classNameWrapper }: TRegionListProps) {
                   <EnvironmentOutlined
                     className={styles.icon}
                   />
-                  <span className={styles.title}>
+                  <span className={styles.itemTitle}>
                     {item.title}
                   </span>
                 </button>

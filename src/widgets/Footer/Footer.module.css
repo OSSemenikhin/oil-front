@@ -5,7 +5,8 @@
 .footer,
 .footer * {
   background-color: var(--color-scheme-6);
-  color: var(--color-scheme-2)
+  color: var(--color-scheme-2);
+  font-weight: 200;
 }
 
 .content {
@@ -31,7 +32,7 @@
 }
 
 .title {
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: 600;
   display: flex;
   align-items: center;
