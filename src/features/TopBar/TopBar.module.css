@@ -11,16 +11,6 @@
   }
 }
 
-/* .bar::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  height: 20px;
-  width: 100vw;
-  background-color: var(--color-scheme-4);
-} */
-
 .region {
   position: relative;
   color: var(--color-scheme-3);
@@ -30,6 +20,7 @@
   column-gap: 1rem;
 }
 
+.link,
 .phone,
 .search,
 .cart {

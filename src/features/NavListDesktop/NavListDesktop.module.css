@@ -76,6 +76,8 @@
 
 .link,
 .subLink {
+  position: relative;
+  padding-bottom: .2rem;
   display: inline-block;
   font-family: 'Oswald';
   font-size: 16px;
@@ -95,18 +97,20 @@
 
 .subLink::after,
 .link::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-scheme-3);
-  transition: width .2s ease-in-out;
-  transform: translateX(-50%);
+  background-color: var(--color-scheme-2);
 }
 
 .subLink:hover::after,
-.navItem:hover .link::after {
+.link:hover::after {
+  width: 100%;
+}
+
+.active.subLink::after,
+.active.link::after {
+  background-color: var(--color-scheme-3);
+}
+
+.active.subLink::after,
+.active.link::after {
   width: 100%;
 }

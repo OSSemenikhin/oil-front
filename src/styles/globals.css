@@ -81,3 +81,19 @@ main {
 .hover-brightness:hover {
   filter: brightness(1.7);
 }
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-scheme-3);
+  transition: width .2s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}

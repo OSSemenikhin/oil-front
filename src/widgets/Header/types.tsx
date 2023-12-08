@@ -2,6 +2,7 @@ export type INavLink = {
   title: string;
   href: string;
   subItems?: Array<INavLink>;
+  active?: boolean;
 }
 
 export type INavList = Array<INavLink>;

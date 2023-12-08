@@ -12,10 +12,12 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
     {
       title: 'Пункт_1 Масла',
       href: '#',
+      active: true,
       subItems: [
         {
           title: 'Подпункт_1',
           href: '#',
+          active: true,
         },
         {
           title: 'Подпункт_2',
@@ -61,33 +63,11 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
           title: 'Подпункт_2',
           href: '#',
         },
-        {
-          title: 'Подпункт_3',
-          href: '#',
-        },
-        {
-          title: 'Подпункт_4',
-          href: '#',
-        },
       ],
     },
     {
       title: 'Техника Пункт_4',
       href: '#',
-      subItems: [
-        {
-          title: 'Подпункт_1',
-          href: '#',
-        },
-        {
-          title: 'Подпункт_2',
-          href: '#',
-        },
-        {
-          title: 'Подпункт_3',
-          href: '#',
-        }
-      ],
     },
   ];
 
@@ -111,13 +91,14 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
     }
   }, [scrollPosition, lisnksColor])
 
-  const renderLink = (href: string, title: string, className: string) => {
+  const renderLink = (href: string, title: string, className: string, active: boolean) => {
     return (
       <Link
         href={href}
         className={
           [
-            'hover-brightness active-opacity',
+            'hover-brightness hover-underline active-opacity',
+            active ? styles.active : '',
             className,
           ].join(' ').trim()
         }>
@@ -126,10 +107,17 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
     );
   }
 
-  const getListItem = (item: INavLink, index: number) => {
-    if (item.subItems) return (
+  const renderListItem = (link: INavLink, index: number) => {
+    const stylesLink = [
+      styles.link,
+      styles[`link--${lisnksColor}`],
+      link.active ? styles.active : '',
+      'hover-underline'
+    ].join(' ').trim();
+
+    if (link.subItems) return (
       <>
-        {renderLink(item.href, item.title, [styles.link, styles[`link--${lisnksColor}`]].join(' '))}
+        {renderLink(link.href, link.title, stylesLink, !!link.active)}
         <div className={styles.subListWrapper}>
           <ul className={
             [
@@ -137,9 +125,9 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
               styles.subList,
             ].join(' ').trim()
           }>
-            {item.subItems.map((subItem, subItemIndex) => (
-              <li key={`${index}_${subItemIndex}_subItem`} className={styles.subItem}>
-                {renderLink(subItem.href, subItem.title, styles.subLink)}
+            {link.subItems.map((subLink, subLinkIndex) => (
+              <li key={`${index}_${subLinkIndex}_subLink`} className={styles.subItem}>
+                {renderLink(subLink.href, subLink.title, styles.subLink, !!subLink.active)}
               </li>
             ))}
           </ul>
@@ -147,19 +135,19 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
       </>
     );
 
-    return renderLink(item.href, item.title, styles.link);
+    return renderLink(link.href, link.title, stylesLink, !!link.active);
   }
 
   return (
     <nav className={styles.nav}>
       <ul ref={listRef} className={styles.navList}>
         {
-          list.map((item, index) => (
+          list.map((link, index) => (
             <li
               key={`${index}_nav`}
               className={styles.navItem}
             >
-              {getListItem(item, index)}
+              {renderListItem(link, index)}
             </li>
           ))
         }
