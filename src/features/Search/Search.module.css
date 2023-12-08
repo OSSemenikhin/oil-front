@@ -27,6 +27,7 @@
   transition-duration: 0.2s;
   transition-timing-function: ease-in;
   transition-property: opacity visibility width;
+  z-index: 2;
 
   @media(min-width: 640px) {
     right: 0;
