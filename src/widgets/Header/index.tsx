@@ -3,11 +3,75 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from 'assets/logo-red.svg';
 import NavListDesktop from 'features/NavListDesktop';
+import { TNavLink } from 'features/types';
 import Actions from 'features/Actions';
 import TopBar from '../../features/TopBar';
 import BurgerMenu from 'widgets/BurgerMenu';
 import CBurger from 'components/CBurger';
 import styles from './Header.module.css';
+
+const list: TNavLink[] = [
+  {
+    title: 'Пункт_1 Масла',
+    href: '#',
+    active: true,
+    subItems: [
+      {
+        title: 'Подпункт_1',
+        href: '#',
+        active: true,
+      },
+      {
+        title: 'Подпункт_2',
+        href: '#',
+      },
+      {
+        title: 'Подпункт_3',
+        href: '#',
+      },
+      {
+        title: 'Подпункт_4',
+        href: '#',
+      }
+    ],
+  },
+  {
+    title: 'Автомобили Пункт_2',
+    href: '#',
+    subItems: [
+      {
+        title: 'Подпункт_1',
+        href: '#',
+      },
+      {
+        title: 'Подпункт_2',
+        href: '#',
+      },
+      {
+        title: 'Подпункт_3',
+        href: '#',
+      }
+    ],
+  },
+  {
+    title: 'Мотоциклы Пункт_3',
+    href: '#',
+    subItems: [
+      {
+        title: 'Подпункт_1',
+        href: '#',
+      },
+      {
+        title: 'Подпункт_2',
+        href: '#',
+      },
+    ],
+  },
+  {
+    title: 'Техника Пункт_4',
+    href: '#',
+  },
+];
 
 export default function Header() {
   const [topBarHight, setTopBarHeight] = useState<number>(0);
@@ -74,7 +138,11 @@ export default function Header() {
         <div
           className={styles.background}
           style={{ height: `${containerHeight - Math.min(scrollPosition, containerHeight)}px` }}
-        ></div>
+        >
+          <div ref={containerRef} className="container flex justify-between items-center mx-auto px-5 py-3">
+            <NavListDesktop className={styles.navBarBlack} color='white'/>
+          </div>
+        </div>
         <div ref={containerRef} className="container flex justify-between items-center mx-auto px-5 py-3">
           <Link className={styles.logo} href="/">
             <Image
@@ -83,7 +151,7 @@ export default function Header() {
               alt="emka"
             />
           </Link>
-          <NavListDesktop scrollPosition={scrollPosition} />
+          <NavListDesktop color='black'/>
           <div className='flex gap-x-2'>
             <Actions
               classNameWrapper={styles.actions}

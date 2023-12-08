@@ -5,10 +5,27 @@
   height: 61px;
   width: 100vw;
   background-color: var(--color-scheme-4);
+  overflow: hidden;
   /* transition: height .2s ease-in-out; */
 
   @media(min-width: 1024px) {
     background-color: var(--color-scheme-1);
+  }
+}
+.navBarBlack {
+  pointer-events: none;
+  z-index: 3 !important;
+
+  @media(min-width: 1024px) {
+    transform: translateX(227px);
+  }
+
+  @media(min-width: 1280px) {
+    transform: translateX(274px);
+  }
+
+  @media(min-width: 1536px) {
+  transform: translateX(403px);
   }
 }
 

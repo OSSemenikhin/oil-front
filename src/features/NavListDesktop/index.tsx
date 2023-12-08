@@ -4,10 +4,11 @@ import { TNavLink } from 'features/types';
 import styles from './NavListDesktop.module.css'
 
 type TNavListDesktopProps = {
-  scrollPosition: number;
+  color: 'black' | 'white';
+  className?: string;
 }
 
-export default function NavListDesktop({ scrollPosition, }: TNavListDesktopProps) {
+export default function NavListDesktop({ color, className}: TNavListDesktopProps) {
   const list: TNavLink[] = [
     {
       title: 'Пункт_1 Масла',
@@ -71,25 +72,7 @@ export default function NavListDesktop({ scrollPosition, }: TNavListDesktopProps
     },
   ];
 
-  const [lisnksColor, setLinksColor] = useState<'black' | 'white'>('black');
   const listRef = useRef<HTMLUListElement>(null);// }
-
-  useEffect(() => {
-    if (!listRef.current) return;
-    const listHeight = listRef.current.getBoundingClientRect().height;
-    switch (lisnksColor) {
-      case 'black':
-        if (listHeight + 14 < scrollPosition) {
-          setLinksColor('white');
-        }
-        break;
-      case 'white':
-        if (listHeight + 10 > scrollPosition) {
-          setLinksColor('black');
-        }
-        break;
-    }
-  }, [scrollPosition, lisnksColor])
 
   const renderLink = (href: string, title: string, className: string, active: boolean) => {
     return (
@@ -110,7 +93,7 @@ export default function NavListDesktop({ scrollPosition, }: TNavListDesktopProps
   const renderListItem = (link: TNavLink, index: number) => {
     const stylesLink = [
       styles.link,
-      styles[`link--${lisnksColor}`],
+      styles[`link--${color}`],
       link.active ? styles.active : '',
       'hover-underline'
     ].join(' ').trim();
@@ -139,7 +122,7 @@ export default function NavListDesktop({ scrollPosition, }: TNavListDesktopProps
   }
 
   return (
-    <nav className={styles.nav}>
+    <nav className={[className, styles.nav].join(' ').trim()}>
       <ul ref={listRef} className={styles.navList}>
         {
           list.map((link, index) => (

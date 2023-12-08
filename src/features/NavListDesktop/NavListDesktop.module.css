@@ -24,11 +24,11 @@
 
 }
 
-.link--black {
+.link--white{
   color: var(--color-scheme-2);
 }
 
-.link--white {
+.link--black {
   color: var(--color-scheme-4);
 }
 
