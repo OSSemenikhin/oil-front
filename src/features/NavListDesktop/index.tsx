@@ -24,6 +24,10 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
         {
           title: 'Подпункт_3',
           href: '#',
+        },
+        {
+          title: 'Подпункт_4',
+          href: '#',
         }
       ],
     },
@@ -60,7 +64,11 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
         {
           title: 'Подпункт_3',
           href: '#',
-        }
+        },
+        {
+          title: 'Подпункт_4',
+          href: '#',
+        },
       ],
     },
     {
