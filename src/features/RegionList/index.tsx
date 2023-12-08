@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Modal } from 'antd';
 import { EnvironmentOutlined } from '@ant-design/icons';
-import { IRegionList } from 'widgets/Header/types';
+import { TRegionList } from 'widgets/Header/types';
 import styles from './RegionLIst.module.css';
 
-type IRegionListProps = {
+type TRegionListProps = {
   classNameWrapper?: string;
 }
 
-export default function RegionList({ classNameWrapper }: IRegionListProps) {
-  const regionsListInit: IRegionList = [
+export default function RegionList({ classNameWrapper }: TRegionListProps) {
+  const regionsListInit: TRegionList = [
     { title: 'Караганда', active: true },
     { title: 'Караганда_2', active: false },
     { title: 'Караганда_3', active: false },
@@ -19,7 +19,7 @@ export default function RegionList({ classNameWrapper }: IRegionListProps) {
 
   const [isRegionModalOpen, setRegionModalOpen] = useState<boolean>(false);
   const [currentCity, setCurrentCity] = useState<string>('Караганда');
-  const [regionsList, setRegionsList] = useState<IRegionList>(regionsListInit);
+  const [regionsList, setRegionsList] = useState<TRegionList>(regionsListInit);
 
   const changeRegion = (index: number) => {
     const updatedList = regionsList.map((item, itemIndex) => ({

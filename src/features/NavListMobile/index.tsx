@@ -2,13 +2,13 @@ import { MenuProps, Menu, List, ConfigProvider } from 'antd';
 import Link from 'next/link';
 import { RightOutlined } from '@ant-design/icons';
 import CButtonWave from 'components/Buttons/CButtonWave';
-import { INavList } from 'widgets/Header/types';
+import { TNavList } from 'widgets/Header/types';
 import styles from './NavListMobile.module.css'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
 export default function NavListMobile() {
-  const list: INavList = [
+  const list: TNavList = [
     {
       title: 'Пункт_1',
       href: '#',
@@ -115,7 +115,7 @@ export default function NavListMobile() {
     } as MenuItem;
   }
 
-  const getSubItems = (items: INavList, itemIndex: number): MenuItem[] => {
+  const getSubItems = (items: TNavList, itemIndex: number): MenuItem[] => {
     return items.map((subItem, subItemIndex) => {
       return getItem(subItem.title, `${itemIndex}_${subItemIndex}_subItem`)
     });

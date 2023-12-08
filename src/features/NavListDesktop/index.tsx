@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { INavList, INavLink } from 'widgets/Header/types';
+import { TNavList, TNavLink } from 'widgets/Header/types';
 import styles from './NavListDesktop.module.css'
 
-type INavListDesktopProps = {
+type TNavListDesktopProps = {
   scrollPosition: number;
 }
 
-export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps) {
-  const list: INavList = [
+export default function NavListDesktop({ scrollPosition, }: TNavListDesktopProps) {
+  const list: TNavList = [
     {
       title: 'Пункт_1 Масла',
       href: '#',
@@ -107,7 +107,7 @@ export default function NavListDesktop({ scrollPosition, }: INavListDesktopProps
     );
   }
 
-  const renderListItem = (link: INavLink, index: number) => {
+  const renderListItem = (link: TNavLink, index: number) => {
     const stylesLink = [
       styles.link,
       styles[`link--${lisnksColor}`],

@@ -4,12 +4,12 @@ import NavListMobile from 'features/NavListMobile';
 import RegionList from 'features/RegionList';
 import styles from './BurgerMenu.module.css'
 
-type IBurgerMenu = {
+type TBurgerMenu = {
   headerHeight: number;
   isOpen: boolean;
 }
 
-export default forwardRef(function BurgerMenu({ headerHeight, isOpen }: IBurgerMenu, ref) {
+export default forwardRef(function BurgerMenu({ headerHeight, isOpen }: TBurgerMenu, ref) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({

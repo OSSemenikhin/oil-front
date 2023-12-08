@@ -1,16 +1,16 @@
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { INavList } from 'widgets/Header/types';
+import { TNavList } from 'widgets/Header/types';
 import RegionList from 'features/RegionList';
 import Actions from 'features/Actions';
 import styles from './TopBar.module.css';
 
-type ITopBarProps = {
+type TTopBarProps = {
   onMount: (hight: number) => void;
 }
 
-export default function TopBar({ onMount }: ITopBarProps) {
-  const list: INavList = [
+export default function TopBar({ onMount }: TTopBarProps) {
+  const list: TNavList = [
     {
       title: 'O нас',
       href: '#',

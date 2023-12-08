@@ -4,14 +4,14 @@ import Cart from 'features/Cart';
 import CPhone from 'components/CPhone';
 import styles from './Actions.module.css';
 
-type IActionsProps = {
+type TActionsProps = {
   classNameWrapper?: string,
   classNamePhoneIcon: string,
   classNameCartIcon: string,
   classNameSearchIcon: string,
 }
 
-export default function Actions({ classNameWrapper, classNameCartIcon, classNameSearchIcon, classNamePhoneIcon }: IActionsProps) {
+export default function Actions({ classNameWrapper, classNameCartIcon, classNameSearchIcon, classNamePhoneIcon }: TActionsProps) {
   return (
     <div className={
       [

@@ -1,15 +1,15 @@
-export type INavLink = {
+export type TNavLink = {
   title: string;
   href: string;
-  subItems?: Array<INavLink>;
+  subItems?: Array<TNavLink>;
   active?: boolean;
 }
 
-export type INavList = Array<INavLink>;
+export type TNavList = Array<TNavLink>;
 
-export type IRegion = {
+export type TRegion = {
   title: string;
   active: boolean;
 }
 
-export type IRegionList = Array<IRegion>;
+export type TRegionList = Array<TRegion>;

@@ -1,11 +1,11 @@
 import { PhoneOutlined } from '@ant-design/icons';
 
-type ICPhoneProps = {
+type TCPhoneProps = {
   className?: string;
   classNameIcon?: string;
 }
 
-export default function CPhone({ className, classNameIcon }: ICPhoneProps) {
+export default function CPhone({ className, classNameIcon }: TCPhoneProps) {
   return (
       <a href="tel:88005553535"
         className={

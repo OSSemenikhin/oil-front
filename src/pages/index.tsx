@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import Header from 'widgets/Header';
 import Hero from 'widgets/Hero';
 

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from './CBurger.module.css';
 
-type IBurgerProps = {
+type TBurgerProps = {
   onButtonClick: () => void;
   onOpenCallack: () => void;
   isMenuOpen: boolean;
 }
 
-export default function Burger({ onButtonClick, isMenuOpen, onOpenCallack }: IBurgerProps) {
+export default function Burger({ onButtonClick, isMenuOpen, onOpenCallack }: TBurgerProps) {
   const animationSpeed = 100;
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isAnimation, setIsAnimation] = useState<boolean>(false);

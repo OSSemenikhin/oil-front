@@ -3,14 +3,14 @@ import { InputRef, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import styles from './Search.module.css';
 
-type ISearchProps = {
+type TSearchProps = {
   classNameWrapper?: string;
   classNameInput?: string;
   classNameIcon?: string;
   classNameButton?: string;
 }
 
-export default function CSearch({ classNameIcon, classNameWrapper, classNameInput, classNameButton }: ISearchProps) {
+export default function CSearch({ classNameIcon, classNameWrapper, classNameInput, classNameButton }: TSearchProps) {
   const [isSearchActive, setSearchActive] = useState<boolean>(false);
   const searchContainerRef = useRef<HTMLInputElement>(null);
   const searchInputRef = useRef<InputRef>(null);

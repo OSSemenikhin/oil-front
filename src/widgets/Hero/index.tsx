@@ -8,7 +8,7 @@ import Image from 'next/image';
 import styles from './Hero.module.css';
 import './Hero.css';
 
-type IPaginationOptions = {
+type TPaginationOptions = {
   clickable: boolean;
   renderBullet: (index: number, className: string) => string;
 };
@@ -27,7 +27,7 @@ export default function Hero() {
     window.addEventListener('resize', calculateWidth);
   }, []);
 
-  const paginationOptions: IPaginationOptions = {
+  const paginationOptions: TPaginationOptions = {
     clickable: true,
     renderBullet: (index, className) => (
       `<span class="${className} hero-bullet"></span>`
