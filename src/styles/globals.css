@@ -43,6 +43,10 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */
+::selection {
+  background-color: var(--color-scheme-3);
+  color: var(--color-scheme-2);
+}
 
 html {
   font-size: 14px;

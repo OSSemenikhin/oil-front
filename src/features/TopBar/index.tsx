@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { TNavList } from 'features/types';
+import { TNavLink } from 'features/types';
 import RegionList from 'features/RegionList';
 import Actions from 'features/Actions';
 import styles from './TopBar.module.css';
@@ -10,10 +10,10 @@ type TTopBarProps = {
 }
 
 export default function TopBar({ onMount }: TTopBarProps) {
-  const list: TNavList = [
+  const list: TNavLink[] = [
     {
       title: 'O нас',
-      href: '#',
+      href: '/aboutUs',
       subItems: [
         {
           title: 'Подпункт_1',
@@ -73,6 +73,7 @@ export default function TopBar({ onMount }: TTopBarProps) {
                   <Link
                     className={[styles.link, 'hover-brightness'].join(' ').trim()}
                     href={link.href}
+                    prefetch
                   >
                     {link.title}
                   </Link>

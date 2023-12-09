@@ -11,10 +11,10 @@ import CBurger from 'components/CBurger';
 import styles from './Header.module.css';
 
 export default function Header() {
-  const [topBarHight, setTopBarHeight] = useState<number>(0);
+  const [topBarHight, setTopBarHeight] = useState<number>(50);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [containerHeight, setContainerHeight] = useState<number>(0);
+  const [containerHeight, setContainerHeight] = useState<number>(78);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 

@@ -101,7 +101,7 @@
 }
 
 .subLink:hover::after,
-.link:hover::after {
+.navItem:hover .link::after {
   width: 100%;
 }
 
