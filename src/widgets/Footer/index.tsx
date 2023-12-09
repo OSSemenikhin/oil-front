@@ -132,7 +132,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="container mx-auto px-5 pb-10">
-        <div className={styles.content}>
+        <nav className={styles.content}>
           <div className={styles.info}>
             <h2 className={[styles.title, 'py-3'].join(' ').trim()}><i>Emka</i>&nbsp; смазочные материалы</h2>
             <Link className={[styles.phone, 'hover-brightness'].join(' ').trim()} href="tel:8805553535">88005553535</Link>
@@ -184,7 +184,7 @@ export default function Footer() {
               alt="emka"
             />
           </Link>
-        </div>
+        </nav>
         {/* <div className={styles.logoWrapper}> */}
         {/* </div> */}
       </div>
