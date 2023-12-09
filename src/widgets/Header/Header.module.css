@@ -2,11 +2,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 61px;
+  height: 78px;
   width: 100vw;
   background-color: var(--color-scheme-4);
   overflow: hidden;
-  /* transition: height .2s ease-in-out; */
 
   @media(min-width: 1024px) {
     background-color: var(--color-scheme-1);
@@ -28,10 +27,6 @@
   @media(min-width: 1536px) {
     transform: translateX(403px);
   }
-}
-
-.header {
-  /* padding-top: 78px; */
 }
 
 .fixed {
