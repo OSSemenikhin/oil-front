@@ -11,10 +11,10 @@ import CBurger from 'components/CBurger';
 import styles from './Header.module.css';
 
 export default function Header() {
-  const [topBarHight, setTopBarHeight] = useState<number>(50);
+  const [topBarHight, setTopBarHeight] = useState<number>(0);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [containerHeight, setContainerHeight] = useState<number>(78);
+  const [containerHeight, setContainerHeight] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -71,10 +71,10 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <TopBar onMount={(height: number) => setTopBarHeight(height)} />
-      <div className={styles.fixed} style={{ top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px` }}>
+      <div className={styles.fixed} style={topBarHight ? { top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px`} : {}}>
         <div
           className={styles.background}
-          style={{ height: `${containerHeight - Math.min(scrollPosition, containerHeight)}px` }}
+          style={containerHeight ? { height: `${containerHeight - Math.min(scrollPosition, containerHeight)}px` } : {}}
         >
           <div ref={containerRef} className="container flex justify-between items-center mx-auto px-5 py-3">
             <FakeNavListDesktop className={styles.navBarBlack} color='white'/>

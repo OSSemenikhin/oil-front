@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { motion } from "framer-motion"
+import Breadcrumbs from 'features/Breadcrumbs';
 import Header from 'widgets/Header';
 import Footer from 'widgets/Footer';
 import styles from './Layout.module.css';
@@ -9,10 +9,13 @@ type LayoutProps = {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  return(
+  return (
     <>
       <Header />
-        <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <Breadcrumbs />
+        {children}
+      </main>
       <Footer />
     </>
   );

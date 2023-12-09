@@ -65,7 +65,7 @@ export default function NavListMobile() {
     },
     {
       title: 'O нас',
-      href: '#',
+      href: '/aboutUs',
       subItems: [
         {
           title: 'Подпункт_1',
