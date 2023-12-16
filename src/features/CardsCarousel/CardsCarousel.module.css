@@ -12,7 +12,7 @@
 
 .swiper {
   @media(min-width: 1440px) {
-    max-width: 1440px;
+    max-width: 1536px;
     overflow: hidden;
   }
 }
@@ -30,8 +30,11 @@
 }
 
 .navigation {
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   column-gap: 2rem;
 }
 
@@ -44,9 +47,17 @@
   align-items: center;
   border: 1px solid var(--color-scheme-6);
   border-radius: 100%;
+  transition-property: background, box-shadow;
 }
 
 .nextEl *,
 .prevEl * {
   pointer-events: none;
+}
+
+.navigateButton {
+  /* margin-left: auto; */
+  position: absolute;
+  right: 0;
+  transition-property: filter, background;
 }

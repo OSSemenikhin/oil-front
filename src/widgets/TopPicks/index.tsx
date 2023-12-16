@@ -17,9 +17,7 @@ export default function TopPicks() {
     slides.push(newCard);
   };
 
-  console.log(slides)
-
   return (
-    <CardsCarousel cards={slides} type={'product'} title='Популярное'/>
+    <CardsCarousel cards={slides} type={'product'} title='Популярное' navigateButton={{text: 'Перейти в каталог', href: '#'}}/>
   );
 }

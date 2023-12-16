@@ -17,9 +17,7 @@ export default function NewArrivals() {
     slides.push(newCard);
   };
 
-  console.log(slides)
-
   return (
-    <CardsCarousel cards={slides} type={'product'} title='Новинки'/>
+    <CardsCarousel cards={slides} type={'product'} title='Новинки' navigateButton={{text: 'Перейти в каталог', href: '#'}}/>
   );
 }

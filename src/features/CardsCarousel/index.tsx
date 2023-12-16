@@ -4,17 +4,22 @@ import 'swiper/css';
 import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 import ProductCard, { TProduct } from 'features/ProductCard';
+import NewsCard, { TNews } from 'features/NewsCard';
 import CButtonWave from 'components/Buttons/CButtonWave';
 import styles from './CardsCarousel.module.css';
 import './CardsCarousel.css'
 
 type TCardsCarousel = {
-  cards: TProduct[];
+  cards: TProduct[] | TNews[];
   type: 'product' | 'news';
   title: string;
+  navigateButton?: {
+    text: string,
+    href: string,
+  };
 }
 
-export default function CardsCarousel({ cards, type, title }: TCardsCarousel) {
+export default function CardsCarousel({ cards, type, title, navigateButton }: TCardsCarousel) {
   const navigationPrevRef = useRef(null)
   const navigationNextRef = useRef(null)
 
@@ -39,6 +44,17 @@ export default function CardsCarousel({ cards, type, title }: TCardsCarousel) {
     window.addEventListener('resize', calculateWidth);
   }, []);
 
+  const renderCard = (slide: TProduct | TNews) => {
+    if (type === 'product' && 'name' in slide) {
+      return <ProductCard product={slide} />;
+    }
+    if (type === 'news' && 'title' in slide) {
+      return <NewsCard news={slide} />;
+    }
+    return null;
+  };
+
+
   return (
     <section className={[styles.content].join(' ').trim()}>
       <h2 className={['site-title', styles.title].join(' ').trim()}>{title}</h2>
@@ -55,23 +71,26 @@ export default function CardsCarousel({ cards, type, title }: TCardsCarousel) {
         // onSlideChange={() => console.log('slide change')}
         >
           {
-            cards.map((slide, index) => (
+            cards.map((slide: TProduct | TNews, index: number) => (
               <SwiperSlide key={`${index}_slide`}>
                 <div className={styles.slide}>
-                  {type === 'product' && <ProductCard product={slide} />}
+                  {renderCard(slide)}
                 </div>
               </SwiperSlide>
             ))
           }
         </Swiper>
       </div>
-      <div className={styles.navigation}>
+      <div className={[styles.navigation, 'container mx-auto'].join(' ').trim()}>
         <div ref={navigationPrevRef}>
           <CButtonWave classNameButton={['hover-shadow', styles.prevEl].join(' ').trim()}><LeftOutlined /></CButtonWave>
         </div>
         <div ref={navigationNextRef}>
           <CButtonWave classNameButton={['hover-shadow', styles.nextEl].join(' ').trim()}><RightOutlined /></CButtonWave>
         </div>
+        {
+          navigateButton && <CButtonWave classNameButton={['hover-brightness btn btn-main', styles.navigateButton].join(' ').trim()}>{navigateButton.text}</CButtonWave>
+        }
       </div>
     </section>
   );
