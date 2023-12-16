@@ -1,5 +1,6 @@
 import Layout from '../features/Layout';
 import Hero from 'widgets/Hero';
+import NewArrivals from 'widgets/NewArrivals';
 import TopPicks from 'widgets/TopPicks';
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <Layout>
       <Hero />
       <TopPicks />
+      <NewArrivals />
     </Layout>
   )
 }
