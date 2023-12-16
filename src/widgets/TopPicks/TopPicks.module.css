@@ -1,0 +1,39 @@
+.content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.slide {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+.nextEl,
+.prevEl {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-scheme-6);
+  border-radius: 100%;
+}
+
+[aria-disabled="true"] .nextEl,
+[aria-disabled="true"] .prevEl {
+  pointer-events: none;
+  opacity: .3;
+}

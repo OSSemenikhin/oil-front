@@ -17,6 +17,8 @@
 }
 
 :root {
+  --color-scheme-success: #90A959;
+
   --color-scheme-1: rgb(0, 0, 0);
   --color-scheme-1-opacity-03: rgba(0, 0, 0, 0.298);
   --color-scheme-1-opacity-065: rgba(0, 0, 0, 0.65);
@@ -32,8 +34,13 @@
   --color-4: #F85E00;
   --color-5: #90A959;
 
+  --border-radius: 1rem;
+
   --effect-shadow-1: 0 0 14px 0 var(--color-scheme-1-opacity-03);
   --effect-shadow-bottom-1: 0 5px 5px -5px var(--color-scheme-1-opacity-03);
+
+  --transition-duration: .2s;
+  --transition-timing-function: ease-in-out;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -66,41 +73,62 @@ body {
   overflow-x: hidden;
 }
 
-.active-opacity,
-.hover-opacity {
-  transition: opacity .2s linear;
-}
-.active-opacity:active,
-.hover-opacity:hover {
-  opacity: .7;
+.site-title {
+  font-size: 2rem;
+  text-align: center;
 }
 
-.hover-brightness {
-  transition-property: filter, opacity;
-  transition-duration: .2s;
-  transition-timing-function: linear;
+@media(hover: hover) {
+  .active-opacity,
+  .hover-opacity {
+    transition: opacity var(--transition-duration) linear;
+  }
+
+  .active-opacity:active,
+  .hover-opacity:hover {
+    opacity: .7;
+  }
+
+  .hover-brightness {
+    transition-property: filter, opacity;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: linear;
+  }
+
+  .hover-brightness:hover {
+    filter: brightness(1.7);
+  }
+
+  .hover-underline {
+    position: relative;
+  }
+
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-scheme-3);
+    transition: width var(--transition-duration) var(--transition-timing-function);
+    transform: translateX(-50%);
+  }
+
+  .hover-underline:hover::after {
+    width: 100%;
+  }
+
+  .hover-shadow {
+    transition: box-shadow var(--transition-duration) var(--transition-timing-function);
+  }
+
+  .hover-shadow:hover {
+    box-shadow: var(--effect-shadow-1);
+  }
 }
 
-.hover-brightness:hover {
-  filter: brightness(1.7);
-}
-
-.hover-underline {
-  position: relative;
-}
-
-.hover-underline::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-scheme-3);
-  transition: width .2s ease-in-out;
-  transform: translateX(-50%);
-}
-
-.hover-underline:hover::after {
-  width: 100%;
+.disabled {
+  filter: grayscale(100%);
+  pointer-events: none;
 }

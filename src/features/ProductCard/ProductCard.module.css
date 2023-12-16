@@ -1,0 +1,66 @@
+.card {
+  position: relative;
+  width: 20rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--color-scheme-1-opacity-03);
+  border-radius: var(--border-radius);
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: end;
+}
+
+.badge p + p {
+  margin-top: 1rem;
+}
+
+.new,
+.hit {
+  padding: .3rem .4rem;
+  color: var(--color-scheme-2);
+}
+
+.new {
+  background-color: var(--color-4);
+}
+
+.hit {
+  background-color: var(--color-scheme-3);
+}
+
+.image {
+  margin-bottom: 2rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.package {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.package p + p {
+  margin-left: .5rem;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 700;
+}

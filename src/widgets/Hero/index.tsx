@@ -3,7 +3,6 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/module
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/effect-cube';
 import Image from 'next/image';
 import styles from './Hero.module.css';
 import './Hero.css';
@@ -53,7 +52,7 @@ export default function Hero() {
   };
 
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         autoplay={{delay: 5000, disableOnInteraction: true}}
@@ -62,8 +61,8 @@ export default function Hero() {
         loop={true}
         speed={2000}
         pagination={paginationOptions}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
       >
         {
           slides.map((slide, index) => (
@@ -83,6 +82,6 @@ export default function Hero() {
           ))
         }
       </Swiper>
-    </div>
+    </section>
   );
 }

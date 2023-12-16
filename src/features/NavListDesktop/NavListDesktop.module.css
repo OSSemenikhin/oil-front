@@ -61,9 +61,9 @@
   visibility: hidden;
   pointer-events: none;
   transition-property: opacity, visibility;
-  transition-duration: .2s;
-  transition-timing-function: ease-in-out;
-  transform: translateY(22px);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+  transform: translateY(20px);
 }
 
 .subList {

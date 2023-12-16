@@ -54,7 +54,7 @@
 /* .list {
   height: 0px;
   overflow: hidden;
-  transition: height .2s ease-in-out;
+  transition: height var(--transition-duration) var(--transition-timing-function);
 } */
 
 .list li+li {

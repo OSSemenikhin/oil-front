@@ -24,8 +24,8 @@
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in;
+  transition-duration: 0var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
   transition-property: opacity visibility width;
   z-index: 2;
 
