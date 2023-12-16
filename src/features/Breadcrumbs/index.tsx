@@ -34,10 +34,10 @@ export default function Breadcrumbs() {
   }, [router.asPath]);
 
   return (
-    <>
+    <div className='effect-shadow-bottom'>
       {breadcrumbs.length > 1 && (
         <Breadcrumb className={'container mx-auto px-5 py-3'} items={breadcrumbs} separator='>' />
       )}
-    </>
+    </div>
   );
 };

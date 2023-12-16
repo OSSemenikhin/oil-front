@@ -5,6 +5,7 @@
  const routes: TRoutes = {
   home: 'Главная страница',
   aboutUs: 'О нас',
+  product: 'Товар',
 }
 
 export default routes

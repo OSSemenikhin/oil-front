@@ -7,9 +7,10 @@ import styles from './Layout.module.css';
 
 type LayoutProps = {
   children: ReactNode;
+  banner?: boolean;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, banner }: LayoutProps) {
   return (
     <>
       <Head>

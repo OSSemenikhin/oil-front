@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Navigation, Scrollbar, A11y } from 'swiper/modules';
@@ -20,6 +21,7 @@ type TCardsCarousel = {
 }
 
 export default function CardsCarousel({ cards, type, title, navigateButton }: TCardsCarousel) {
+  const router = useRouter();
   const navigationPrevRef = useRef(null)
   const navigationNextRef = useRef(null)
 
@@ -73,7 +75,7 @@ export default function CardsCarousel({ cards, type, title, navigateButton }: TC
           {
             cards.map((slide: TProduct | TNews, index: number) => (
               <SwiperSlide key={`${index}_slide`}>
-                <div className={styles.slide}>
+                <div className={styles.slide} onClick={() => router.push(type === 'product' ? '/product' : '/news')}>
                   {renderCard(slide)}
                 </div>
               </SwiperSlide>
