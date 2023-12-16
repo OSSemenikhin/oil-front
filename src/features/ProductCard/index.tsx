@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Image from 'next/image';
 import styles from './ProductCard.module.css';
 
@@ -15,11 +16,19 @@ type TProductCard = {
 }
 
 export default function ProductCard({ product }: TProductCard) {
+  const [isNew, setNew] = useState<boolean>(false);
+  const [isHit, setHit] = useState<boolean>(false);
+
+  useEffect(() => {
+    setNew(product.new ?? false);
+    setHit(product.hit ?? false);
+  }, [product.new, product.hit]);
+
   return (
     <article className={['hover-shadow', styles.card].join(' ').trim()} >
       <div className={styles.badge}>
-        {product.new && <p className={styles.new}>Новинка</p>}
-        {product.hit && <p className={styles.hit}>Хит</p>}
+        {isNew && <p className={styles.new}>Новинка</p>}
+        {isHit && <p className={styles.hit}>Хит</p>}
       </div>
       <Image
         className={styles.image}
