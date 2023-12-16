@@ -3,4 +3,86 @@
   padding-top: 2rem;
 }
 
+.tabs {
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
 
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview {
+  padding: 1rem;
+  border: 2px solid transparent;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+  transition-property: border;
+}
+
+[aria-selected="true"] .preview {
+  border: 2px solid var(--color-scheme-3);
+}
+
+.packaging {
+  margin-bottom: 2rem;
+}
+
+.packaging > p {
+  width: min-content;
+  font-weight: 600;
+}
+
+.packaging ul {
+  column-gap: 1rem;
+}
+
+.action {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.item p + p {
+  margin-left: 1rem;
+}
+
+.characteristics {
+  padding: 2rem 0;
+}
+
+.characteristics h3 {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.description {
+  padding-bottom: 2rem;
+}
+
+.titleWrapper {
+  margin-bottom: 1rem;
+}
+
+.specifications {
+  padding-left: 2rem;
+  list-style: square;
+}
+
+.specifications li + li {
+  margin-top: 1rem;
+}
