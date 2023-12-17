@@ -48,6 +48,8 @@ export default function Header() {
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll);
+    const startPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+    setScrollPosition(startPos);
 
     return () => {
       document.removeEventListener('scroll', handleScroll);

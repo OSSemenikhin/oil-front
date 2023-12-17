@@ -21,10 +21,12 @@
   box-shadow: var(--effect-shadow-bottom-1);
 
   @media(min-width: 768px) {
+    max-width: 23rem;
     box-shadow: unset;
   }
 
   @media(min-width: 1280px) {
+    height: 22rem;
     display: flex;
     justify-content: start;
     flex-direction: row-reverse;
@@ -67,11 +69,16 @@
 }
 
 .preview {
+  min-width: 75px;
   padding: .3rem;
   border: 2px solid transparent;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
   transition-property: border;
+
+  @media(min-width: 640px) {
+    min-width: 100px;
+  }
 
   @media(min-width: 1280px) {
     margin-right: 4rem;
