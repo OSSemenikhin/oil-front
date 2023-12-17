@@ -69,7 +69,7 @@ export default function ProductDetails({ product }: TProductDetails) {
   return (
     <section className={[styles.content, 'container mx-auto px-5'].join(' ').trim()}>
       <h2 className="site-title">{product.name}</h2>
-      <div className={styles.main}>
+      <div className={[styles.main, 'product-photo'].join(' ').trim()}>
         <div className={[styles.tabs].join(' ').trim()}>
           <ul className={['flex justify-center', styles.photoList].join(' ').trim()}>
             {
