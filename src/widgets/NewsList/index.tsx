@@ -15,6 +15,6 @@ export default function NewsList() {
   };
 
   return (
-    <CardsCarousel cards={slides} type={'news'} title='Статьи и Новости' navigateButton={{text: 'К списку статей', href: '#'}}/>
+    <CardsCarousel cards={slides} type={'news'} title='Статьи и Новости' navigateButton={{text: 'К\u00A0списку статей', href: '#'}}/>
   );
 }

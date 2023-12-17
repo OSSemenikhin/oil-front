@@ -18,6 +18,7 @@ export default function NewArrivals() {
   };
 
   return (
-    <CardsCarousel cards={slides} type={'product'} title='Новинки' navigateButton={{text: 'Перейти в каталог', href: '#'}}/>
+    <CardsCarousel cards={slides} type={'product'} title='Новинки' navigateButton={{text: 'Перейти\u00A0в каталог', href: '#'}}/>
+
   );
 }
