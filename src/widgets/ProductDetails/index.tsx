@@ -12,13 +12,21 @@ type TProductDetails = {
 }
 
 export default function ProductDetails({ product }: TProductDetails) {
+  const [tabPosition, setTabPosition] = useState<'bottom' | 'left'>('bottom');
   const [activeTab, setActiveTab] = useState<string>('0');
-  const [tabPosition, setTabPosition] = useState<TabPosition>('bottom');
   const [widthPreview, setWidthPreview] = useState<number>(100);
   const [widthPhoto, setWidthPhoto] = useState<number>(250);
+  const [tabBarDisplay, setTabBarDisplay] = useState<'none' | 'block'>('none');
 
   const calculateWidth = () => {
     // setWidth(Math.max(window.innerWidth, 760))
+    if (window.innerWidth >= 768) {
+      setTabBarDisplay('block');
+      setTabPosition('left');
+    } else {
+      setTabBarDisplay('none');
+      setTabPosition('bottom');
+    }
   }
 
   useEffect(() => {
@@ -65,7 +73,11 @@ export default function ProductDetails({ product }: TProductDetails) {
               activeKey={activeTab}
               tabPosition={tabPosition}
               onTabClick={(key) => setActiveTab(key)}
-              tabBarStyle={{ display: 'none' }}
+              tabBarStyle={{ display: tabBarDisplay }}
+              style={{ height: '25rem', overflow: 'hidden' }}
+              popupClassName={styles.popup}
+              centered={true}
+              // moreIcon=''
               items={product.img.map((_, i) => {
                 const id = String(i);
                 return {
@@ -94,7 +106,7 @@ export default function ProductDetails({ product }: TProductDetails) {
             </ul>
           </div>
           <div className={styles.action}>
-            <p className={styles.price}>{product.price} тенге</p>
+            <p className={styles.price}>{product.price} ₸</p>
             <CButtonWave classNameButton={['hover-shadow btn btn-main btn-main--inverted', styles.toCart].join(' ').trim()}>В корзину</CButtonWave>
           </div>
           <div className={styles.item}>
@@ -107,8 +119,12 @@ export default function ProductDetails({ product }: TProductDetails) {
         <div className={styles.titleWrapper}>
           <h2 className='site-title'>Описание:</h2>
         </div>
-        <div className={styles.description}>{product.description}</div>
-        <h3 className='site-subtitle'>Спецификации:</h3>
+        <p className={styles.description}>{product.description}</p>
+      </section>
+      <section className={styles.characteristics}>
+        <div className={styles.titleWrapper}>
+          <h3 className='site-subtitle'>Спецификации:</h3>
+        </div>
         <ul className={styles.specifications}>
           {product.specifications.map((spec, index) => <li key={`${index}_spec`} >
             {spec}

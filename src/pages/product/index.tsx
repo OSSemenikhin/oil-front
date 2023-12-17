@@ -16,7 +16,7 @@ export default function Product() {
     Reiciendis praesentium non eaque officiis voluptate deleniti veritatis aliquid autem pariatur consequatur error at possimus numquam molestiae expedita, accusamus perferendis. Rerum explicabo aspernatur quae ea totam nesciunt quidem? Minima, enim!`,
     packaging: [1, 5, 20],
     price: 3200,
-    img: ['/img/product/product.png', '/img/product/product_1.png', '/img/product/product.png'],
+    img: ['/img/product/product.png', '/img/product/product_1.png', '/img/product/product_2.png'],
     specifications: ['Lorem',  'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipisicing', 'elit'],
     new: Math.random() > .5,
     hit: Math.random() > .5,
