@@ -71,6 +71,12 @@ html * {
 
 body {
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
 }
 
 .site-title,

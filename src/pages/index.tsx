@@ -2,7 +2,7 @@ import Layout from '../features/Layout';
 import Hero from 'widgets/Hero';
 import NewArrivals from 'widgets/NewArrivals';
 import TopPicks from 'widgets/TopPicks';
-import News from 'widgets/News';
+import NewsList from 'widgets/NewsList';
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <TopPicks />
       <NewArrivals />
-      <News />
+      <NewsList />
     </Layout>
   )
 }

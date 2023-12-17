@@ -83,7 +83,7 @@ export default function CardsCarousel({ cards, type, title, navigateButton }: TC
           }
         </Swiper>
       </div>
-      <div className={[styles.navigation, 'container mx-auto'].join(' ').trim()}>
+      <div className={[styles.navigation, 'container mx-auto px-5'].join(' ').trim()}>
         <div ref={navigationPrevRef}>
           <CButtonWave classNameButton={['hover-shadow', styles.prevEl].join(' ').trim()}><LeftOutlined /></CButtonWave>
         </div>
@@ -91,7 +91,11 @@ export default function CardsCarousel({ cards, type, title, navigateButton }: TC
           <CButtonWave classNameButton={['hover-shadow', styles.nextEl].join(' ').trim()}><RightOutlined /></CButtonWave>
         </div>
         {
-          navigateButton && <CButtonWave classNameButton={['hover-brightness btn btn-main', styles.navigateButton].join(' ').trim()}>{navigateButton.text}</CButtonWave>
+          navigateButton && <CButtonWave
+            classNameButton={['hover-brightness btn btn-main btn-main--inverted', styles.navigateButton].join(' ').trim()}
+          >
+            {navigateButton.text}
+          </CButtonWave>
         }
       </div>
     </section>

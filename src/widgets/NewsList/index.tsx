@@ -1,7 +1,7 @@
 import CardsCarousel from "features/CardsCarousel";
 import { TNews } from "features/NewsCard";
 
-export default function News() {
+export default function NewsList() {
   const card: TNews = {
     title: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
     img: '/img/news/news.jpg',

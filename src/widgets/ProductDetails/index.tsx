@@ -1,31 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Tabs, ConfigProvider } from 'antd';
+import { FreeMode } from 'swiper/modules';
+import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
 import { TProduct } from 'types';
 import CButtonWave from 'components/Buttons/CButtonWave';
 import styles from './ProductDetails.module.css';
-
-type TabPosition = 'left' | 'bottom';
+import './ProductDetails.css';
 
 type TProductDetails = {
   product: TProduct;
 }
 
 export default function ProductDetails({ product }: TProductDetails) {
-  const [tabPosition, setTabPosition] = useState<'bottom' | 'left'>('bottom');
-  const [activeTab, setActiveTab] = useState<string>('0');
-  const [widthPreview, setWidthPreview] = useState<number>(100);
+  const [activeTab, setActiveTab] = useState<number>(0);
+  const [widthPreview, setWidthPreview] = useState<number>(75);
   const [widthPhoto, setWidthPhoto] = useState<number>(250);
-  const [tabBarDisplay, setTabBarDisplay] = useState<'none' | 'block'>('none');
+
+  const swiperRef = useRef<SwiperRef>(null);
 
   const calculateWidth = () => {
-    // setWidth(Math.max(window.innerWidth, 760))
-    if (window.innerWidth >= 768) {
-      setTabBarDisplay('block');
-      setTabPosition('left');
+    if (window.innerWidth >= 640) {
+      setWidthPreview(100);
+      setWidthPhoto(300);
     } else {
-      setTabBarDisplay('none');
-      setTabPosition('bottom');
+      setWidthPreview(75);
+      setWidthPhoto(250);
     }
   }
 
@@ -36,68 +37,75 @@ export default function ProductDetails({ product }: TProductDetails) {
 
   const renderPreview = (img: string) => {
     return (
-      <div className={styles.preview}>
-        <Image
-          className={styles.image}
-          src={img}
-          alt="Description of the image"
-          width={widthPreview}
-          height={widthPreview}
-        />
-      </div>
+      <Image
+        className={styles.image}
+        src={img}
+        alt="Description of the image"
+        width={widthPreview}
+        height={widthPreview}
+      />
     );
   }
 
   const renderPhoto = (img: string) => {
     return (
-      <div className={styles.photo}>
-        <Image
-          className={styles.image}
-          src={img}
-          alt="Description of the image"
-          width={widthPhoto}
-          height={widthPhoto}
-        />
-      </div>
+      <Image
+        className={styles.image}
+        src={img}
+        alt="Description of the image"
+        width={widthPhoto}
+        height={widthPhoto}
+      />
     );
   }
 
   return (
-    <div className={[styles.content, 'container mx-auto px-5'].join(' ').trim()}>
+    <section className={[styles.content, 'container mx-auto px-5'].join(' ').trim()}>
       <h2 className="site-title">{product.name}</h2>
       <div className={styles.main}>
         <div className={[styles.tabs, 'effect-shadow-bottom'].join(' ').trim()}>
-          <ConfigProvider theme={{ components: { Tabs: { inkBarColor: 'transparent', } } }}>
-            <Tabs
-              animated={true}
-              activeKey={activeTab}
-              tabPosition={tabPosition}
-              onTabClick={(key) => setActiveTab(key)}
-              tabBarStyle={{ display: tabBarDisplay }}
-              style={{ height: '25rem', overflow: 'hidden' }}
-              popupClassName={styles.popup}
-              centered={true}
-              // moreIcon=''
-              items={product.img.map((_, i) => {
-                const id = String(i);
-                return {
-                  label: renderPreview(_),
-                  key: id,
-                  children: renderPhoto(_),
-                };
-              })}
-            />
-          </ConfigProvider>
+          <ul className='flex justify-center'>
+            {
+              product.img.map((img, index) => (
+                <li key={`${index}_photo`} className={[styles.photo, activeTab === index ? styles.active : ''].join(' ').trim()}>{renderPhoto(img)}</li>
+              ))
+            }
+          </ul>
+          <Swiper
+            modules={[FreeMode]}
+            ref={swiperRef}
+            slidesPerView="auto"
+            freeMode={true}
+            loop={false}
+            style={{ justifyContent: "center" }}
+          >
+            {
+              product.img.map((img, index) => (
+                <SwiperSlide key={`${index}_slide`} className={styles.swiperSlide}>
+                  <button
+                    className={[styles.preview, activeTab === index ? styles.active : ''].join(' ').trim()}
+                    onClick={() => setActiveTab(index)}
+                    role="button"
+                  >
+                    {renderPreview(img)}
+                  </button>
+                </SwiperSlide>
+              ))
+            }
+          </Swiper>
         </div>
-        <div className={styles.right}>
+        <div className={styles.options}>
           <div className={[styles.packaging, 'flex justify-between items-center'].join(' ').trim()}>
             <p>Обьем упаковки:</p>
             <ul className='flex justify-between'>
               {
                 product.packaging.map((volume: number, index: number) => <li key={`${index}_volume`}>
                   <button
-                    className={['btn btn-main', activeTab === `${index}` ? 'active' : ''].join(' ').trim()}
-                    onClick={() => setActiveTab(`${index}`)}
+                    className={['btn btn-main', activeTab === index ? 'active' : ''].join(' ').trim()}
+                    onClick={() => {
+                      setActiveTab(index);
+                      swiperRef.current?.swiper?.slideTo(index);
+                    }}
                   >
                     {volume} л
                   </button>
@@ -131,6 +139,6 @@ export default function ProductDetails({ product }: TProductDetails) {
           </li>)}
         </ul>
       </section>
-    </div>
+    </section>
   );
 }
