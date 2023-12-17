@@ -10,21 +10,6 @@
 }
 
 
-.swiper {
-  @media(min-width: 680px) {
-    max-width: 680px;
-    overflow: hidden;
-  }
-  @media(min-width: 1024px) {
-    max-width: 1024px;
-  }
-  @media(min-width: 1397px) {
-    max-width: 1397px;
-  }
-  @media(min-width: 1440px) {
-    max-width: 1440px;
-  }
-}
 
 .title {
   margin-bottom: 1rem;
@@ -50,6 +35,10 @@
     max-width: 280px;
     justify-content: start;
   }
+}
+
+.navigation,
+.swiper {
   @media(min-width: 680px) {
     max-width: 680px;
   }
@@ -61,6 +50,12 @@
   }
   @media(min-width: 1440px) {
     max-width: 1440px;
+  }
+}
+
+.swiper {
+  @media(min-width: 680px) {
+    overflow: hidden;
   }
 }
 
