@@ -3,17 +3,61 @@
   padding-top: 2rem;
 }
 
+.main {
+  @media(min-width: 768px) {
+    display: flex;
+    column-gap: 2rem;
+  }
+
+  @media(min-width: 1280px) {
+    max-width: 60rem;
+    margin: auto;
+  }
+}
+
 .tabs {
   padding-bottom: 1rem;
   margin-bottom: 2rem;
+  box-shadow: var(--effect-shadow-bottom-1);
+
+  @media(min-width: 768px) {
+    box-shadow: unset;
+  }
+
+  @media(min-width: 1280px) {
+    display: flex;
+    justify-content: start;
+    flex-direction: row-reverse;
+    flex-basis: 60%;
+  }
+}
+
+.photoList {
+  margin-bottom: 3rem;
 }
 
 .photo {
   position: absolute;
-  margin-bottom: 2rem;
+  max-height: 235px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+
+  @media(min-width: 640px) {
+    max-height: 283px;
+  }
+
+  @media(min-width: 768px) {
+    max-height: 283px;
+  }
+
+  @media(min-width: 1280px) {}
+}
+
+.photo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .photo.active {
@@ -28,6 +72,10 @@
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
   transition-property: border;
+
+  @media(min-width: 1280px) {
+    margin-right: 4rem;
+  }
 }
 
 .preview.active {
@@ -41,10 +89,28 @@
 .options {
   max-width: 35rem;
   margin: auto;
+
+  @media(min-width: 768px) {
+    max-width: unset;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media(min-width: 1280px) {
+    flex-basis: 40%;
+  }
 }
 
 .packaging {
   margin-bottom: 2rem;
+
+  @media(min-width: 768px) {
+    padding-bottom: 2rem;
+    flex-direction: column;
+    box-shadow: var(--effect-shadow-bottom-1);
+    order: 2;
+  }
 }
 
 .packaging>p {
@@ -53,6 +119,10 @@
 
   @media(min-width: 370px) {
     width: unset;
+  }
+
+  @media(min-width: 768px) {
+    margin-bottom: 1rem;
   }
 }
 
@@ -65,17 +135,41 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media(min-width: 768px) {
+    padding-bottom: 2rem;
+    box-shadow: var(--effect-shadow-bottom-1);
+    order: 1;
+  }
 }
 
 .price {
   font-size: 1.2rem;
   font-weight: 600;
+
+  @media(min-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.toCart {
+  transition-property: background, box-shadow;
+
+  @media(min-width: 768px) {
+    font-size: 1.5rem;
+  }
 }
 
 .item {
   display: flex;
   justify-content: center;
   font-weight: 600;
+
+  @media(min-width: 768px) {
+    padding-bottom: 2rem;
+    box-shadow: var(--effect-shadow-bottom-1);
+    order: 3;
+  }
 }
 
 .item p+p {

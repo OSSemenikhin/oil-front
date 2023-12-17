@@ -1,4 +1,16 @@
+.swiper {
+  @media(min-width: 1280px) {
+    margin: unset;
+  }
+}
+
 .swiper-wrapper {
   /* justify-content: center; */
   max-width: max-content;
+}
+
+.swiper-slide {
+  /* max-height: min-content; */
+  /* max-height: 8rem; */
+  flex-shrink: 1;
 }

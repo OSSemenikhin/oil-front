@@ -17,10 +17,17 @@ export default function ProductDetails({ product }: TProductDetails) {
   const [activeTab, setActiveTab] = useState<number>(0);
   const [widthPreview, setWidthPreview] = useState<number>(75);
   const [widthPhoto, setWidthPhoto] = useState<number>(250);
+  const [swiperDirection, setSwiperDirection] = useState<'vertical' | 'horizontal'>('horizontal');
 
   const swiperRef = useRef<SwiperRef>(null);
 
   const calculateWidth = () => {
+    if (window.innerWidth >= 1280) {
+      setSwiperDirection('vertical');
+    } else {
+      setSwiperDirection('horizontal');
+    }
+
     if (window.innerWidth >= 640) {
       setWidthPreview(100);
       setWidthPhoto(300);
@@ -63,8 +70,8 @@ export default function ProductDetails({ product }: TProductDetails) {
     <section className={[styles.content, 'container mx-auto px-5'].join(' ').trim()}>
       <h2 className="site-title">{product.name}</h2>
       <div className={styles.main}>
-        <div className={[styles.tabs, 'effect-shadow-bottom'].join(' ').trim()}>
-          <ul className='flex justify-center'>
+        <div className={[styles.tabs].join(' ').trim()}>
+          <ul className={['flex justify-center', styles.photoList].join(' ').trim()}>
             {
               product.img.map((img, index) => (
                 <li key={`${index}_photo`} className={[styles.photo, activeTab === index ? styles.active : ''].join(' ').trim()}>{renderPhoto(img)}</li>
@@ -72,12 +79,12 @@ export default function ProductDetails({ product }: TProductDetails) {
             }
           </ul>
           <Swiper
+            direction={swiperDirection}
             modules={[FreeMode]}
             ref={swiperRef}
             slidesPerView="auto"
             freeMode={true}
             loop={false}
-            style={{ justifyContent: "center" }}
           >
             {
               product.img.map((img, index) => (
