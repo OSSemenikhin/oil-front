@@ -1,5 +1,5 @@
 import CardsCarousel from "features/CardsCarousel";
-import  { TProduct } from 'features/ProductCard';
+import { TProduct } from 'features/ProductCard';
 
 export default function NewArrivals() {
   const card: TProduct = {
@@ -18,7 +18,14 @@ export default function NewArrivals() {
   };
 
   return (
-    <CardsCarousel cards={slides} type={'product'} title='Новинки' navigateButton={{text: 'Перейти\u00A0в каталог', href: '#'}}/>
+    <CardsCarousel
+      cards={slides}
+      type={'product'}
+      title='Новинки'
+      navigateButton={{ text: 'Перейти\u00A0в каталог', href: '#' }}
+      carouselPrevEl="newArrivalsPrev"
+      carouselNextEl="newArrivalsNext"
+    />
 
   );
 }

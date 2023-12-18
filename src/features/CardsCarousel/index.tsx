@@ -14,14 +14,17 @@ type TCardsCarousel = {
   cards: TProduct[] | TNews[];
   type: 'product' | 'news';
   title: string;
+  carouselNextEl: string;
+  carouselPrevEl: string;
   navigateButton?: {
     text: string,
     href: string,
   };
 }
 
-export default function CardsCarousel({ cards, type, title, navigateButton }: TCardsCarousel) {
+export default function CardsCarousel({ cards, type, title, carouselNextEl, carouselPrevEl, navigateButton }: TCardsCarousel) {
   const router = useRouter();
+  const uniqueString = Math.round(Math.random() * 1000000).toString() + title;
 
   const renderCard = (slide: TProduct | TNews) => {
     if (type === 'product' && 'name' in slide) {
@@ -45,7 +48,7 @@ export default function CardsCarousel({ cards, type, title, navigateButton }: TC
           slidesPerGroup={1}
           loop={false}
           speed={200}
-          navigation={{ nextEl: `.${styles.nextEl}`, prevEl: `.${styles.prevEl}` }}
+          navigation={{ nextEl: `.${carouselNextEl}`, prevEl: `.${carouselPrevEl}` }}
           breakpoints={{
             600: {
               slidesPerView: 2,
@@ -76,8 +79,8 @@ export default function CardsCarousel({ cards, type, title, navigateButton }: TC
         </Swiper>
       </div>
       <div className={[styles.navigation, 'container mx-auto px-5'].join(' ').trim()}>
-        <CButtonWave classNameButton={['hover-shadow', styles.prevEl].join(' ').trim()}><LeftOutlined /></CButtonWave>
-        <CButtonWave classNameButton={['hover-shadow', styles.nextEl].join(' ').trim()}><RightOutlined /></CButtonWave>
+        <CButtonWave classNameButton={['hover-shadow', styles.prevEl, carouselPrevEl].join(' ').trim()}><LeftOutlined /></CButtonWave>
+        <CButtonWave classNameButton={['hover-shadow', styles.nextEl, carouselNextEl].join(' ').trim()}><RightOutlined /></CButtonWave>
         {
           navigateButton && (
             <CButtonWave

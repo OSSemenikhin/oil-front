@@ -1,5 +1,5 @@
 import CardsCarousel from "features/CardsCarousel";
-import  { TProduct } from 'features/ProductCard';
+import { TProduct } from 'features/ProductCard';
 
 export default function TopPicks() {
   const card: TProduct = {
@@ -18,7 +18,14 @@ export default function TopPicks() {
   };
 
   return (
-    <CardsCarousel cards={slides} type={'product'} title='Популярное' navigateButton={{text: 'Перейти\u00A0в каталог', href: '#'}}/>
+    <CardsCarousel
+      cards={slides}
+      type={'product'}
+      title='Популярное'
+      navigateButton={{ text: 'Перейти\u00A0в каталог', href: '#' }}
+      carouselPrevEl="topPicksPrev"
+      carouselNextEl="topPicksNext"
+    />
 
   );
 }
