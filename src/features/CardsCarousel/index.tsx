@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Navigation, Scrollbar, A11y } from 'swiper/modules';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 import ProductCard, { TProduct } from 'features/ProductCard';
 import NewsCard, { TNews } from 'features/NewsCard';
@@ -22,29 +22,6 @@ type TCardsCarousel = {
 
 export default function CardsCarousel({ cards, type, title, navigateButton }: TCardsCarousel) {
   const router = useRouter();
-  const navigationPrevRef = useRef(null)
-  const navigationNextRef = useRef(null)
-
-  const [slidesPerView, setSlidesPerView] = useState<number>(1);
-
-  const calculateWidth = () => {
-    if (window.innerWidth > 1396) {
-      setSlidesPerView(4);
-    } else if (window.innerWidth >= 1024) {
-      setSlidesPerView(3);
-    } else if (window.innerWidth >= 692) {
-      setSlidesPerView(2);
-    } else if (window.innerWidth >= 600 && window.innerWidth < 640) {
-      setSlidesPerView(2);
-    } else {
-      setSlidesPerView(1);
-    }
-  }
-
-  useEffect(() => {
-    calculateWidth();
-    window.addEventListener('resize', calculateWidth);
-  }, []);
 
   const renderCard = (slide: TProduct | TNews) => {
     if (type === 'product' && 'name' in slide) {
@@ -62,15 +39,30 @@ export default function CardsCarousel({ cards, type, title, navigateButton }: TC
       <h2 className={['site-title', styles.title].join(' ').trim()}>{title}</h2>
       <div className={styles.swiper}>
         <Swiper
-          modules={[Navigation, Scrollbar, A11y]}
+          modules={[Navigation]}
           spaceBetween={0}
-          slidesPerView={slidesPerView}
+          slidesPerView={1}
+          slidesPerGroup={1}
           loop={false}
           speed={200}
-          navigation={{ nextEl: navigationNextRef.current, prevEl: navigationPrevRef.current }}
-        // navigation
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log('slide change')}
+          navigation={{ nextEl: `.${styles.nextEl}`, prevEl: `.${styles.prevEl}` }}
+          breakpoints={{
+            600: {
+              slidesPerView: 2,
+            },
+            640: {
+              slidesPerView: 1,
+            },
+            692: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1396: {
+              slidesPerView: 4,
+            },
+          }}
         >
           {
             cards.map((slide: TProduct | TNews, index: number) => (
@@ -84,18 +76,16 @@ export default function CardsCarousel({ cards, type, title, navigateButton }: TC
         </Swiper>
       </div>
       <div className={[styles.navigation, 'container mx-auto px-5'].join(' ').trim()}>
-        <div ref={navigationPrevRef}>
-          <CButtonWave classNameButton={['hover-shadow', styles.prevEl].join(' ').trim()}><LeftOutlined /></CButtonWave>
-        </div>
-        <div ref={navigationNextRef}>
-          <CButtonWave classNameButton={['hover-shadow', styles.nextEl].join(' ').trim()}><RightOutlined /></CButtonWave>
-        </div>
+        <CButtonWave classNameButton={['hover-shadow', styles.prevEl].join(' ').trim()}><LeftOutlined /></CButtonWave>
+        <CButtonWave classNameButton={['hover-shadow', styles.nextEl].join(' ').trim()}><RightOutlined /></CButtonWave>
         {
-          navigateButton && <CButtonWave
-            classNameButton={['hover-brightness btn btn-main btn-main--inverted', styles.navigateButton].join(' ').trim()}
-          >
-            {navigateButton.text}
-          </CButtonWave>
+          navigateButton && (
+            <CButtonWave
+              classNameButton={['hover-brightness btn btn-main btn-main--inverted', styles.navigateButton].join(' ').trim()}
+            >
+              {navigateButton.text}
+            </CButtonWave>
+          )
         }
       </div>
     </section>
