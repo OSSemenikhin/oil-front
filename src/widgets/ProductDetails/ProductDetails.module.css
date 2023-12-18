@@ -26,6 +26,7 @@
   }
 
   @media(min-width: 1280px) {
+    max-width: 30rem;
     height: 22rem;
     display: flex;
     justify-content: start;
@@ -185,6 +186,17 @@
 
 .characteristics {
   padding-top: 2rem;
+
+  /* @media(min-width: 1024px) {
+    max-width: 984px;
+    margin: auto;
+  } */
+
+  @media(min-width: 1024px) {
+    max-width: unset;
+    margin: unset;
+    display: flex;
+  }
 }
 
 .characteristics:last-child {
@@ -198,6 +210,27 @@
 
 .titleWrapper {
   margin-bottom: 1rem;
+
+  @media(min-width: 1024px) {
+    flex-shrink: 1;
+  }
+}
+
+.titleWrapper h2 {
+  text-align: left;
+}
+
+.characteristics > *:not(.titleWrapper) {
+
+  @media(min-width: 1024px) {
+    width: 70%;
+    margin-left: auto;
+    text-align: left;
+  }
+
+  @media(min-width: 1280px) {
+    width: 80%;
+  }
 }
 
 .specifications {
