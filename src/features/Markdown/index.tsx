@@ -22,23 +22,28 @@ export default function Markdown() {
   }
 
   return (
-    <MDXEditor markdown='# Hello world' plugins={[
-      toolbarPlugin({
-        // toolbarContents: () => (<></>)
-        // toolbarContents: () => (<> <BoldItalicUnderlineToggles /></>)
-        // toolbarContents: () => (<div> <UndoRedo /></div>)
-        toolbarContents: () => (<> <Toolbar /></>)
-        // toolbarContents: () => (<> <UndoRedo /><BoldItalicUnderlineToggles /></>)
-      }),
-      // sandpackPlugin(),
-      imagePlugin(),
-      tablePlugin(),
-      diffSourcePlugin(),
-      frontmatterPlugin(),
-      headingsPlugin(),
-      listsPlugin(),
-      quotePlugin(),
-      thematicBreakPlugin()
-    ]} />
+    <>
+      <MDXEditor contentEditableClassName="prose" markdown='# Hello world' plugins={[
+        toolbarPlugin({
+          // toolbarContents: () => (<></>)
+          // toolbarContents: () => (<> <BoldItalicUnderlineToggles /></>)
+          // toolbarContents: () => (<div> <UndoRedo /></div>)
+          toolbarContents: () => (<> <Toolbar /></>)
+          // toolbarContents: () => (<> <UndoRedo /><BoldItalicUnderlineToggles /></>)
+        }),
+        // sandpackPlugin(),
+        imagePlugin(),
+        tablePlugin(),
+        diffSourcePlugin(),
+        frontmatterPlugin(),
+        headingsPlugin(),
+        listsPlugin(),
+        quotePlugin(),
+        thematicBreakPlugin()
+      ]} />
+      <div>
+
+      </div>
+    </>
   );
 }
