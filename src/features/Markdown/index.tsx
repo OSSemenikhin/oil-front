@@ -1,12 +1,19 @@
 import dynamic from "next/dynamic";
 import { MDXEditor } from '@mdxeditor/editor/MDXEditor';
-import { headingsPlugin } from '@mdxeditor/editor/plugins/headings';
-import { listsPlugin } from '@mdxeditor/editor/plugins/lists';
-import { quotePlugin } from '@mdxeditor/editor/plugins/quote';
-import { thematicBreakPlugin } from '@mdxeditor/editor/plugins/thematic-break';
-import { toolbarPlugin } from '@mdxeditor/editor/plugins/toolbar'
+import {
+  headingsPlugin,
+  toolbarPlugin,
+  quotePlugin,
+  thematicBreakPlugin,
+  frontmatterPlugin,
+  diffSourcePlugin,
+  imagePlugin,
+  tablePlugin,
+  listsPlugin,
+  sandpackPlugin,
+} from '@mdxeditor/editor';
 import '@mdxeditor/editor/style.css'
-const Test = dynamic(() => import('./Toolbar'), { ssr: false });
+const Toolbar = dynamic(() => import('./Toolbar'), { ssr: false });
 
 export default function Markdown() {
   return (
@@ -15,9 +22,14 @@ export default function Markdown() {
         // toolbarContents: () => (<></>)
         // toolbarContents: () => (<> <BoldItalicUnderlineToggles /></>)
         // toolbarContents: () => (<div> <UndoRedo /></div>)
-        toolbarContents: () => (<> <Test /></>)
+        toolbarContents: () => (<> <Toolbar /></>)
         // toolbarContents: () => (<> <UndoRedo /><BoldItalicUnderlineToggles /></>)
       }),
+      // sandpackPlugin(),
+      imagePlugin(),
+      tablePlugin(),
+      diffSourcePlugin(),
+      frontmatterPlugin(),
       headingsPlugin(),
       listsPlugin(),
       quotePlugin(),
