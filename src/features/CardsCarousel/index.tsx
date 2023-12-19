@@ -79,12 +79,13 @@ export default function CardsCarousel({ cards, type, title, carouselNextEl, caro
         </Swiper>
       </div>
       <div className={[styles.navigation, 'container mx-auto px-5'].join(' ').trim()}>
-        <CButtonWave classNameButton={['hover-shadow', styles.prevEl, carouselPrevEl].join(' ').trim()}><LeftOutlined /></CButtonWave>
-        <CButtonWave classNameButton={['hover-shadow', styles.nextEl, carouselNextEl].join(' ').trim()}><RightOutlined /></CButtonWave>
+        <CButtonWave classNameButton={['hover-shadow', styles.prevEl, carouselPrevEl].join(' ').trim()} waveColor='rgb(227, 0, 33)'><LeftOutlined /></CButtonWave>
+        <CButtonWave classNameButton={['hover-shadow', styles.nextEl, carouselNextEl].join(' ').trim()} waveColor='rgb(227, 0, 33)'><RightOutlined /></CButtonWave>
         {
           navigateButton && (
             <CButtonWave
               classNameButton={['hover-brightness btn btn-main btn-main--inverted', styles.navigateButton].join(' ').trim()}
+              waveColor='rgba(255, 255, 255, .3)'
             >
               {navigateButton.text}
             </CButtonWave>

@@ -122,7 +122,7 @@ export default function ProductDetails({ product }: TProductDetails) {
           </div>
           <div className={styles.action}>
             <p className={styles.price}>{product.price} ₸</p>
-            <CButtonWave classNameButton={['hover-shadow btn btn-main btn-main--inverted', styles.toCart].join(' ').trim()}>В корзину</CButtonWave>
+            <CButtonWave classNameButton={['hover-shadow btn btn-main btn-main--inverted', styles.toCart].join(' ').trim()} waveColor='rgba(255, 255, 255, .3)' >В корзину</CButtonWave>
           </div>
           <div className={styles.item}>
             <p>Артикул:</p>

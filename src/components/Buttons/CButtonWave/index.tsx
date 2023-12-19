@@ -6,9 +6,10 @@ type TCButtonWave = {
   children?: ReactNode;
   classNameButton?: string;
   waveClassName?: string;
+  waveColor?: string;
 }
 
-export default function CButtonWave({ children, onClick, classNameButton, waveClassName }: TCButtonWave) {
+export default function CButtonWave({ children, onClick, classNameButton, waveClassName, waveColor }: TCButtonWave) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
@@ -25,7 +26,8 @@ export default function CButtonWave({ children, onClick, classNameButton, waveCl
 
     const wave = document.createElement('span');
     wave.className = [styles.wave, waveClassName ?? ''].join(' ').trim();
-    wave.style.cssText = `width:${size}px;height:${size}px;top:${y}px;left:${x}px`
+    wave.style.cssText = `width:${size}px;height:${size}px;top:${y}px;left:${x}px`;
+    waveColor && (wave.style.backgroundColor = waveColor);
     rippleBtn.appendChild(wave);
 
     setTimeout(() => wave.remove(), 500);
