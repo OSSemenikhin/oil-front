@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Layout from 'features/Layout';
-import { ReactNode } from 'react';
+import Markdown from 'features/Markdown';
 
 type TAbout = {
   page: string;
@@ -8,11 +8,12 @@ type TAbout = {
 
 export default function About({ page }: TAbout) {
   const router = useRouter();
-  const slug: string|string[] = router.query.slug ?? '';
+  const slug: string | string[] = router.query.slug ?? '';
 
   return (
     <Layout>
       <div dangerouslySetInnerHTML={{ __html: page }} ></div>
+      <Markdown />
     </Layout>
   );
 }
