@@ -4,7 +4,8 @@
 
  const routes: TRoutes = {
   home: 'Главная страница',
-  aboutUs: 'О нас',
+  us: 'О нас',
+  delivery: 'Доставка',
   product: 'Товар',
 }
 

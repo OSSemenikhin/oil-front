@@ -13,7 +13,7 @@ export default function TopBar({ onMount }: TTopBarProps) {
   const list: TNavLink[] = [
     {
       title: 'O нас',
-      href: '/aboutUs',
+      href: '/about/us',
       subItems: [
         {
           title: 'Подпункт_1',
@@ -31,7 +31,7 @@ export default function TopBar({ onMount }: TTopBarProps) {
     },
     {
       title: 'Доставка',
-      href: '#',
+      href: '/about/delivery',
       subItems: [
         {
           title: 'Подпункт_1',

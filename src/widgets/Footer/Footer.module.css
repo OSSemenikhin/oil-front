@@ -1,6 +1,7 @@
 .footer {
   width: 100vw;
   padding-top: 2rem;
+  align-self: flex-end;
 }
 
 .footer,

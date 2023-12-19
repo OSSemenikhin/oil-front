@@ -13,9 +13,8 @@ export default function Breadcrumbs() {
     const asPathNestedRoutes = asPathWithoutQuery.split("/").filter(v => v.length > 0);
 
     const crumblist = asPathNestedRoutes.map((subpath, idx) => {
+      if (!routes[subpath]) return { title: '' };
       const href = "/" + asPathNestedRoutes.slice(0, idx + 1).join("/");
-      const title = subpath;
-
       if (idx === (asPathNestedRoutes.length - 1)) {
 
       }
@@ -25,13 +24,15 @@ export default function Breadcrumbs() {
           href={href}
           className={idx === (asPathNestedRoutes.length - 1) ? 'disabled' : ''}
         >
-          {routes[title]}
+          {routes[subpath]}
         </Link>
       };
     });
 
-    return [{ title: <Link href={'/'} >{routes.home}</Link> }, ...crumblist];
+    return [{ title: <Link href={'/'} >{routes.home}</Link> }, ...crumblist].filter(link => link.title !== '');
   }, [router.asPath]);
+
+  console.log(breadcrumbs);
 
   return (
     <div className='effect-shadow-bottom'>
