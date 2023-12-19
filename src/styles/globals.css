@@ -55,6 +55,12 @@
   color: var(--color-scheme-2);
 }
 
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 html {
   font-size: 14px;
   /* scroll-snap-type: y mandatory; */
@@ -70,13 +76,8 @@ html * {
 }
 
 body {
+  min-height: 100vh;
   overflow-x: hidden;
-}
-
-main {
-  min-height: 56.6vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .site-title,

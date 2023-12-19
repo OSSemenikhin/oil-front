@@ -1,4 +1,5 @@
 .main {
+  flex-grow: 1;
   padding-top: 4.3rem;
 
   @media(min-width: 640px) {
