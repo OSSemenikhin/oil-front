@@ -5,6 +5,7 @@ import { InsertImage } from '@mdxeditor/editor/plugins/toolbar/components/Insert
 import { InsertTable } from '@mdxeditor/editor/plugins/toolbar/components/InsertTable';
 import { InsertThematicBreak } from '@mdxeditor/editor/plugins/toolbar/components/InsertThematicBreak';
 import { ListsToggle } from '@mdxeditor/editor/plugins/toolbar/components/ListsToggle';
+import { BlockTypeSelect } from '@mdxeditor/editor/plugins/toolbar/components/BlockTypeSelect';
 import { InsertSandpack } from '@mdxeditor/editor/plugins/toolbar/components/InsertSandpack';
 import { InsertFrontmatter } from '@mdxeditor/editor/plugins/toolbar/components/InsertFrontmatter';
 import { DiffSourceToggleWrapper } from '@mdxeditor/editor/plugins/toolbar/components/DiffSourceToggleWrapper';
@@ -15,6 +16,7 @@ export default function Test() {
       <DiffSourceToggleWrapper>
         <UndoRedo />
         <BoldItalicUnderlineToggles />
+        <BlockTypeSelect />
         <CreateLink />
         <InsertImage />
         <InsertTable />

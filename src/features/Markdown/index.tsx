@@ -11,11 +11,16 @@ import {
   tablePlugin,
   listsPlugin,
   sandpackPlugin,
+  ToMarkdownOptions,
 } from '@mdxeditor/editor';
 import '@mdxeditor/editor/style.css'
 const Toolbar = dynamic(() => import('./Toolbar'), { ssr: false });
 
 export default function Markdown() {
+  const DEFAULT_MARKDOWN_OPTIONS: ToMarkdownOptions = {
+    listItemIndent: 'one'
+  }
+
   return (
     <MDXEditor markdown='# Hello world' plugins={[
       toolbarPlugin({
