@@ -32,8 +32,6 @@ export default function Breadcrumbs() {
     return [{ title: <Link href={'/'} >{routes.home}</Link> }, ...crumblist].filter(link => link.title !== '');
   }, [router.asPath]);
 
-  console.log(breadcrumbs);
-
   return (
     <div className='effect-shadow-bottom'>
       {breadcrumbs.length > 1 && (

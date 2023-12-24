@@ -16,20 +16,17 @@ import {
 import '@mdxeditor/editor/style.css'
 const Toolbar = dynamic(() => import('./Toolbar'), { ssr: false });
 
-export default function Markdown() {
-  const DEFAULT_MARKDOWN_OPTIONS: ToMarkdownOptions = {
-    listItemIndent: 'one'
-  }
+type TMarkDownProps = {
+  value: string;
+  onChange?: (value: string) => void;
+}
 
+export default function Markdown( { value, onChange }: TMarkDownProps ) {
   return (
     <>
-      <MDXEditor contentEditableClassName="prose" markdown='# Hello world' plugins={[
+      <MDXEditor contentEditableClassName="prose" markdown={value} plugins={[
         toolbarPlugin({
-          // toolbarContents: () => (<></>)
-          // toolbarContents: () => (<> <BoldItalicUnderlineToggles /></>)
-          // toolbarContents: () => (<div> <UndoRedo /></div>)
           toolbarContents: () => (<> <Toolbar /></>)
-          // toolbarContents: () => (<> <UndoRedo /><BoldItalicUnderlineToggles /></>)
         }),
         // sandpackPlugin(),
         imagePlugin(),

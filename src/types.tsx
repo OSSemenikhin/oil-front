@@ -9,4 +9,13 @@ export type TProduct = {
   item: string;
   new?: boolean;
   hit?: boolean;
-}
+};
+
+export type TPage = {
+  id: number;
+  content: string;
+  menu: string;
+  rout: string;
+  created_at: string;
+  updated_at: string;
+};

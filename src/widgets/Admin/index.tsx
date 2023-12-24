@@ -1,34 +1,19 @@
 import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
-
-const dataProvider = jsonServerProvider("http://oil.api/api");
-// const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
-console.log(dataProvider);
+import AboutList from "./AboutList";
+import AboutEdit from "./AboutEdit";
 
 export default function AdminApp() {
-  const getData = async () => {
-    let x = await fetch('http://oil.api/api/users');
-    x = await x.json();
-    console.log(x);
-  }
-
-  getData();
-
+const dataProvider = jsonServerProvider("http://oil.api/api");
   return (
     <Admin dataProvider={dataProvider}>
       <Resource
-        name="users"
-        list={ListGuesser}
-        edit={EditGuesser}
-        recordRepresentation="name"
+        name="about"
+        list={AboutList}
+        edit={AboutEdit}
+        recordRepresentation="id"
+        options={{ label: 'Контент' }}
       />
-      <Resource
-        name="posts"
-        list={ListGuesser}
-        edit={EditGuesser}
-        recordRepresentation="title"
-      />
-      <Resource name="comments" list={ListGuesser} edit={EditGuesser} />
     </Admin>
   )
 };
