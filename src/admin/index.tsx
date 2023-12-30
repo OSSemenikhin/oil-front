@@ -1,10 +1,10 @@
 import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
-import jsonServerProvider from "ra-data-json-server";
+import simpleRestProvider from "ra-data-simple-rest";
 import AboutList from "./AboutList";
 import AboutEdit from "./AboutEdit";
 
 export default function AdminApp() {
-const dataProvider = jsonServerProvider("http://oil.api/api");
+const dataProvider = simpleRestProvider("http://oil.api/api");
   return (
     <Admin dataProvider={dataProvider}>
       <Resource

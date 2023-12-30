@@ -15,6 +15,7 @@ export default function About({ page }: TAbout) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  if (!context.params?.slug) return { notFound: true };
   const api = `http://oil.api/api/about/page/${context.params.slug}`;
   const response = await fetch(api);
   const page: TPage = await response.json();

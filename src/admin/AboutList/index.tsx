@@ -1,7 +1,7 @@
 import { Datagrid, DateField, List, TextField, useListContext } from 'react-admin';
 
 export default function AboutList() {
-  const constext = useListContext();
+  // const constext = useListContext();
   // console.log(constext);
   return (
     <List>
