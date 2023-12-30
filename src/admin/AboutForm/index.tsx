@@ -7,7 +7,7 @@ import {
   required,
   Toolbar,
   SaveButton,
-  DeleteButton
+  DeleteButton,
 } from 'react-admin';
 import TurndownService from 'turndown';
 import Markdown from 'features/Markdown';
@@ -39,6 +39,14 @@ export default function AboutForm({ type, record }: TAboutFormProps) {
     setValues({ ...values, content: content });
   };
 
+  const handleInput = (value: any, field: 'menu' | 'route') => {
+    setValues(prevValues => {
+      const newValues = { ...prevValues };
+      newValues[field] = value.nativeEvent.target.value;
+      return newValues;
+    });
+  }
+
   const toolbar = () => {
     return (
       <Toolbar>
@@ -58,12 +66,13 @@ export default function AboutForm({ type, record }: TAboutFormProps) {
   return (
     <SimpleForm record={values} toolbar={toolbar()}>
       <TextInput
+        onChange={(value: any) => handleInput(value, 'menu')}
         source="menu"
         label="Название в меню"
         validate={required()}
       />
       <TextInput
-        onChange={() => console.log('asdf')}
+        onChange={(value: string) => handleInput(value, 'route')}
         source="route"
         label="Путь в адресной строке"
         validate={required()}
