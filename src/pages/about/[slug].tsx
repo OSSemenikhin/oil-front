@@ -10,7 +10,7 @@ type TAbout = {
 export default function About({ page }: TAbout) {
   return (
     <Layout>
-      <div className={[styles.aboutPage, 'container mx-auto px-5'].join(' ').trim()} dangerouslySetInnerHTML={{ __html: page.content }} ></div>
+      <div className={[styles.about, 'container mx-auto px-5'].join(' ').trim()} dangerouslySetInnerHTML={{ __html: page.content }} ></div>
     </Layout>
   );
 }

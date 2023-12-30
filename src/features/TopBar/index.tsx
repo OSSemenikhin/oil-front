@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import { TNavLink } from 'features/types';
 import RegionList from 'features/RegionList';
@@ -7,9 +8,10 @@ import styles from './TopBar.module.css';
 
 type TTopBarProps = {
   onMount: (hight: number) => void;
+  links: TNavLink[];
 }
 
-export default function TopBar({ onMount }: TTopBarProps) {
+export default function TopBar({ onMount, links }: TTopBarProps) {
   const list: TNavLink[] = [
     {
       title: 'O нас',
@@ -93,3 +95,4 @@ export default function TopBar({ onMount }: TTopBarProps) {
 
   )
 }
+
