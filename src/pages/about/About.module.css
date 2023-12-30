@@ -1,0 +1,30 @@
+.aboutPage {
+  padding: 3rem 0;
+}
+
+.aboutPage h2,
+.aboutPage h3 {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.aboutPage h2 {
+  font-size: 2rem;
+}
+
+.aboutPage h3 {
+  font-size: 1.5rem;
+}
+
+.aboutPage p {
+  padding: 2rem 0;
+}
+
+.aboutPage ul {
+  padding-left: 1rem;
+}
+
+.aboutPage li {
+  padding-left: .5rem;
+  list-style: square;
+}

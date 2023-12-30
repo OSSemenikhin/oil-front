@@ -1,6 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
 import Layout from 'features/Layout';
 import { TPage } from 'types';
+import styles from './About.module.css';
 
 type TAbout = {
   page: TPage;
@@ -9,7 +10,7 @@ type TAbout = {
 export default function About({ page }: TAbout) {
   return (
     <Layout>
-      <div dangerouslySetInnerHTML={{ __html: page.content }} ></div>
+      <div className={[styles.aboutPage, 'container mx-auto px-5'].join(' ').trim()} dangerouslySetInnerHTML={{ __html: page.content }} ></div>
     </Layout>
   );
 }
