@@ -21,23 +21,27 @@ type TMarkDownProps = {
   onChange?: (value: string) => void;
 }
 
-export default function Markdown( { value, onChange }: TMarkDownProps ) {
+export default function Markdown({ value, onChange }: TMarkDownProps) {
   return (
     <>
-      <MDXEditor contentEditableClassName="prose" markdown={value} plugins={[
-        toolbarPlugin({
-          toolbarContents: () => (<> <Toolbar /></>)
-        }),
-        // sandpackPlugin(),
-        imagePlugin(),
-        tablePlugin(),
-        diffSourcePlugin(),
-        frontmatterPlugin(),
-        headingsPlugin(),
-        listsPlugin(),
-        quotePlugin(),
-        thematicBreakPlugin()
-      ]} />
+      <MDXEditor
+        onChange={(value: string) => onChange && onChange(value)}
+        contentEditableClassName="prose"
+        markdown={value}
+        plugins={[
+          toolbarPlugin({
+            toolbarContents: () => (<> <Toolbar /></>)
+          }),
+          // sandpackPlugin(),
+          imagePlugin(),
+          tablePlugin(),
+          diffSourcePlugin(),
+          frontmatterPlugin(),
+          headingsPlugin(),
+          listsPlugin(),
+          quotePlugin(),
+          thematicBreakPlugin()
+        ]} />
       <div>
 
       </div>

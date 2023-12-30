@@ -1,18 +1,26 @@
-import { Datagrid, DateField, List, TextField, useListContext } from 'react-admin';
+import {
+  Datagrid,
+  DateField,
+  List,
+  TextField,
+  SelectField,
+  EditButton,
+  DeleteButton,
+} from 'react-admin';
 
 export default function AboutList() {
-  // const constext = useListContext();
-  // console.log(constext);
   return (
     <List>
       <Datagrid rowClick="edit">
-        {/* <TextField source="id" /> */}
         <TextField source="menu" label="Пункт меню" />
-        <TextField source="route" label="Путь (адрес)"/>
-        <TextField source="topBar" label="Отображается в шапке"/>
-        {/* <TextField source="content" /> */}
+        <TextField source="route" label="Путь (адрес)" />
+        <SelectField label="Отображается в шапке" source="topBar" choices={[
+          { id: 0, name: 'нет' },
+          { id: 1, name: 'да' },
+        ]} />
         <DateField source="created_at" label="Дата создания" />
         <DateField source="updated_at" label="Дата редактирования" />
+        <DeleteButton />
       </Datagrid>
     </List>
   );
