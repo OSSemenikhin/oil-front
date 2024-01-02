@@ -56,9 +56,6 @@ export default function Header() {
     };
   }, []);
 
-  useEffect(() => {
-  }, [scrollPosition, containerHeight]);
-
   const onOpenMenuCallback = () => {
     if (scrollPosition < containerHeight / 2) {
       window.scrollTo({ top: 0, behavior: 'auto' });
@@ -69,17 +66,16 @@ export default function Header() {
 
   const onMenuOutsideClick = (event: MouseEvent) => { }
 
-
   return (
     <header className={styles.header}>
       <TopBar onMount={(height: number) => setTopBarHeight(height)} />
-      <div className={styles.fixed} style={topBarHight ? { top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px`} : {}}>
+      <div className={styles.fixed} style={topBarHight ? { top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px` } : {}}>
         <div
           className={styles.background}
           style={containerHeight ? { height: `${containerHeight - Math.min(scrollPosition, containerHeight)}px` } : {}}
         >
           <div ref={containerRef} className="container flex justify-between items-center mx-auto px-5 py-3">
-            <FakeNavListDesktop className={styles.navBarBlack} color='white'/>
+            <FakeNavListDesktop className={styles.navBarBlack} color='white' />
           </div>
         </div>
         <div ref={containerRef} className="container flex justify-between items-center mx-auto px-5 py-3">
@@ -90,7 +86,7 @@ export default function Header() {
               alt="emka"
             />
           </Link>
-          <NavListDesktop color='black'/>
+          <NavListDesktop color='black' />
           <div className='flex gap-x-2'>
             <Actions
               classNameWrapper={styles.actions}

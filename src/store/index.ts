@@ -1,0 +1,9 @@
+import { configureStore } from "@reduxjs/toolkit";
+import topBarMenuReducer from "./features/topBarMenuSlice";
+
+export const store = configureStore({
+  reducer: { topBarMenu: topBarMenuReducer }
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
