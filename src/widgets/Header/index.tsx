@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/app/assets/logo-red.svg';
 import { useSelector, useDispatch } from 'react-redux';
-import { getList } from '@/widgets/Header/model/topBarMenuSlice';
+import { getList } from '@/app/Store/model/topBarMenuSlice';
 import NavListDesktop from '@/features/NavListDesktop';
 import FakeNavListDesktop from '@/features/NavListDesktop/FakeNavListDesktop';
 import Actions from '@/features/Actions';

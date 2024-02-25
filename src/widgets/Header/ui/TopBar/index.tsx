@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 // import { getLinks } from 'store/features/topBarMenuSlice';
 import { TNavLink } from '@/shared/types';
-import { TTopBarMenuState } from '@/widgets/Header/model/topBarMenuSlice';
+import { TTopBarMenuState } from '@/app/Store/model/topBarMenuSlice';
 import RegionList from '@/features/RegionList';
 import Actions from '@/features/Actions';
 import styles from './TopBar.module.css';

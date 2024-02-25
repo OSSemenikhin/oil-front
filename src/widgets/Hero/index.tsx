@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 import { useSelector, useDispatch } from 'react-redux';
-import { getHeight } from '@/shared/model/heroHeightSlice';
+import { getHeight } from '@/app/Store/model/heroHeightSlice';
 import styles from './Hero.module.css';
 import './Hero.css';
 

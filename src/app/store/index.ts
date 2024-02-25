@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import topBarMenuReducer from "@/widgets/Header/model/topBarMenuSlice";
-import heroHeightSlice from "@/shared/model/heroHeightSlice";
+import topBarMenuReducer from "@/app/Store/model/topBarMenuSlice";
+import heroHeightSlice from "@/app/Store/model/heroHeightSlice";
 
 export const Store = configureStore({
   reducer: {
