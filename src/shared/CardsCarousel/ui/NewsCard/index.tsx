@@ -19,7 +19,7 @@ export default function NewsCard({ news }: TNewsCard) {
         src={news.img}
         alt="Description of the image"
         width={250}
-        height={250}
+        height={188}
       />
       <h3 className={styles.title}>{news.title}</h3>
       <p className={styles.date}>{news.date}</p>

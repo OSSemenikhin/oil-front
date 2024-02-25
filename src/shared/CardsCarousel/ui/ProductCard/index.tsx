@@ -35,7 +35,7 @@ export default function ProductCard({ product }: TProductCard) {
         src={product.img}
         alt="Description of the image"
         width={250}
-        height={250}
+        height={235}
       />
       <h3 className={styles.title}>{product.name}</h3>
       <div className={styles.package}>
