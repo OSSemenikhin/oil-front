@@ -11,7 +11,7 @@ import {
 } from 'react-admin';
 import TurndownService from 'turndown';
 import Markdown from './ui/Markdown';
-import { TAboutRecord } from '@/admin/types';
+import { TAboutRecord } from '@/widgets/admin/types';
 import { marked } from 'marked';
 
 type TAboutFormProps = {
