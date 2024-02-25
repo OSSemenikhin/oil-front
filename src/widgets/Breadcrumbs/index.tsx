@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { Breadcrumb } from "antd";
 import Link from 'next/link';
-import routes from './routes';
+import routes from './model/routes';
 
 export default function Breadcrumbs() {
   const router = useRouter();

@@ -14,7 +14,7 @@ import {
   ToMarkdownOptions,
 } from '@mdxeditor/editor';
 import '@mdxeditor/editor/style.css'
-const Toolbar = dynamic(() => import('./Toolbar'), { ssr: false });
+const Toolbar = dynamic(() => import('./ui/Toolbar'), { ssr: false });
 
 type TMarkDownProps = {
   value: string;

@@ -10,8 +10,8 @@ import {
   DeleteButton,
 } from 'react-admin';
 import TurndownService from 'turndown';
-import Markdown from './ui/Markdown';
-import { TAboutRecord } from '@/widgets/admin/types';
+import Markdown from '../../../../features/Markdown';
+import { TAboutRecord } from '@/widgets/admin/model/types';
 import { marked } from 'marked';
 
 type TAboutFormProps = {
