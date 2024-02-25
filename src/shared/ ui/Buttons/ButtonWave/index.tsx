@@ -1,7 +1,7 @@
 import React, { useRef, ReactNode, MouseEvent } from 'react';
-import styles from './CButtonWave.module.css';
+import styles from './ButtonWave.module.css';
 
-type TCButtonWave = {
+type TButtonWave = {
   onClick?: (event: MouseEvent) => void;
   children?: ReactNode;
   classNameButton?: string;
@@ -9,7 +9,7 @@ type TCButtonWave = {
   waveColor?: string;
 }
 
-export default function CButtonWave({ children, onClick, classNameButton, waveClassName, waveColor }: TCButtonWave) {
+export default function ButtonWave({ children, onClick, classNameButton, waveClassName, waveColor }: TButtonWave) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {

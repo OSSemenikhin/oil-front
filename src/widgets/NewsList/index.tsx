@@ -1,5 +1,5 @@
-import CardsCarousel from "@/shared/CardsCarousel";
-import { TNews } from "@/shared/CardsCarousel/ui/NewsCard";
+import CardsCarousel from "@/shared/ ui/CardsCarousel";
+import { TNews } from "@/shared/ ui/CardsCarousel/ui/NewsCard";
 
 export default function NewsList() {
   const card: TNews = {

@@ -1,5 +1,5 @@
-import CardsCarousel from '@/shared/CardsCarousel';
-import { TProduct } from '@/shared/CardsCarousel/ui/ProductCard';
+import CardsCarousel from '@/shared/ ui/CardsCarousel';
+import { TProduct } from '@/shared/ ui/CardsCarousel/ui/ProductCard';
 
 export default function NewArrivals() {
   const card: TProduct = {

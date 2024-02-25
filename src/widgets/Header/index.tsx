@@ -4,7 +4,7 @@ import Link from 'next/link';
 import logo from '@/assets/logo-red.svg';
 import NavListDesktop from '@/widgets/Header/ui/NavListDesktop';
 import FakeNavListDesktop from '@/widgets/Header/ui/NavListDesktop/FakeNavListDesktop';
-import Actions from '@/widgets/Header/ui/TopBar/ui/Actions';
+import Actions from '@/features/Actions';
 import TopBar from '@/widgets/Header/ui/TopBar';
 import BurgerMenu from '@/widgets/Header/ui/BurgerMenu';
 import CBurger from '@/widgets/Header/ui/Burger';

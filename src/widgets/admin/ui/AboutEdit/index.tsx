@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Edit, useGetOne } from 'react-admin';
-import AboutForm from '@/widgets/admin/pages/AboutForm';
+import AboutForm from '@/widgets/admin/ui/AboutForm';
 
 export default function AboutEdit() {
   const { id } = useParams();

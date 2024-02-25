@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import styles from './CBurger.module.css';
+import styles from './Burger.module.css';
 
 type TBurgerProps = {
   onButtonClick: () => void;

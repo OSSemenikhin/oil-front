@@ -4,9 +4,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
-import ProductCard, { TProduct } from '@/shared/CardsCarousel/ui/ProductCard';
-import NewsCard, { TNews } from '@/shared/CardsCarousel/ui/NewsCard';
-import CButtonWave from '@/shared/Buttons/CButtonWave';
+import ProductCard, { TProduct } from '@/shared/ ui/CardsCarousel/ui/ProductCard';
+import NewsCard, { TNews } from '@/shared/ ui/CardsCarousel/ui/NewsCard';
+import ButtonWave from '@/shared/ ui/Buttons/ButtonWave';
 import styles from './CardsCarousel.module.css';
 import './CardsCarousel.css'
 
@@ -79,16 +79,16 @@ export default function CardsCarousel({ cards, type, title, carouselNextEl, caro
         </Swiper>
       </div>
       <div className={[styles.navigation, 'container mx-auto px-5'].join(' ').trim()}>
-        <CButtonWave classNameButton={['hover-shadow', styles.prevEl, carouselPrevEl].join(' ').trim()} waveColor='rgb(227, 0, 33)'><LeftOutlined /></CButtonWave>
-        <CButtonWave classNameButton={['hover-shadow', styles.nextEl, carouselNextEl].join(' ').trim()} waveColor='rgb(227, 0, 33)'><RightOutlined /></CButtonWave>
+        <ButtonWave classNameButton={['hover-shadow', styles.prevEl, carouselPrevEl].join(' ').trim()} waveColor='rgb(227, 0, 33)'><LeftOutlined /></ButtonWave>
+        <ButtonWave classNameButton={['hover-shadow', styles.nextEl, carouselNextEl].join(' ').trim()} waveColor='rgb(227, 0, 33)'><RightOutlined /></ButtonWave>
         {
           navigateButton && (
-            <CButtonWave
+            <ButtonWave
               classNameButton={['hover-brightness btn btn-main btn-main--inverted', styles.navigateButton].join(' ').trim()}
               waveColor='rgba(255, 255, 255, .3)'
             >
               {navigateButton.text}
-            </CButtonWave>
+            </ButtonWave>
           )
         }
       </div>

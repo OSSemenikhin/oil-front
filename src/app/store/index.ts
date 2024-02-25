@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import topBarMenuReducer from "@/widgets/Header/ui/TopBar/api/topBarMenuSlice";
+import topBarMenuReducer from "@/widgets/Header/ui/TopBar/model/topBarMenuSlice";
 
 export const store = configureStore({
   reducer: { topBarMenu: topBarMenuReducer }

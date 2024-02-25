@@ -1,12 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
-import { getList } from '@/widgets/Header/ui/TopBar/api/topBarMenuSlice';
+import { getList } from '@/widgets/Header/ui/TopBar/model/topBarMenuSlice';
 // import { getLinks } from 'store/features/topBarMenuSlice';
 import { TNavLink } from '@/types';
-import { TTopBarMenuState } from '@/widgets/Header/ui/TopBar/api/topBarMenuSlice';
-import RegionList from '@/widgets/Header/ui/TopBar/ui/RegionList';
-import Actions from '@/widgets/Header/ui/TopBar/ui/Actions';
+import { TTopBarMenuState } from '@/widgets/Header/ui/TopBar/model/topBarMenuSlice';
+import RegionList from '@/features/RegionList';
+import Actions from '@/features/Actions';
 import styles from './TopBar.module.css';
 
 type TTopBarProps = {
@@ -58,8 +58,8 @@ export default function TopBar({ onMount }: TTopBarProps) {
   // })();
 
   // const list = useSelector((state: TTopBarMenuState) => state.topBarMenu?.list);
-  const list = 'list';
-  console.log(list);
+  // const list = 'list';
+  // console.log(list);
 
   const topBarRef = useRef<HTMLDivElement>(null);
 

@@ -1,5 +1,5 @@
 import { Create } from 'react-admin';
-import AboutForm from '@/widgets/admin/pages/AboutForm';
+import AboutForm from '@/widgets/admin/ui/AboutForm';
 
 export default function AboutCreate() {
   return (
