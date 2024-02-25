@@ -1,17 +1,18 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from 'assets/logo-red.svg';
-import NavListDesktop from 'features/NavListDesktop';
-import FakeNavListDesktop from 'features/NavListDesktop/FakeNavListDesktop';
-import Actions from 'features/Actions';
-import TopBar from '../../features/TopBar';
+import NavListDesktop from '../../shared/NavListDesktop';
+import FakeNavListDesktop from '../../shared/NavListDesktop/FakeNavListDesktop';
+import Actions from '../../shared/Actions';
+import TopBar from '../../widgets/TopBar';
 import BurgerMenu from 'widgets/BurgerMenu';
 import CBurger from 'components/CBurger';
 import styles from './Header.module.css';
 
 export default function Header() {
-  const [topBarHight, setTopBarHeight] = useState<number>(0);
+  const [backgroundIsActive, setBackgroundIsActive] = useState(true);
+  const [topBarHeight, setTopBarHeight] = useState<number>(0);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [containerHeight, setContainerHeight] = useState<number>(0);
@@ -43,7 +44,11 @@ export default function Header() {
   }, []);
 
   const handleScroll = () => {
-    setScrollPosition(window.scrollY);
+    if (window.scrollY > (topBarHeight + containerHeight/2)) {
+      setBackgroundIsActive(false);
+    } else {
+      setBackgroundIsActive(true);
+    }
   };
 
   useEffect(() => {
@@ -67,12 +72,11 @@ export default function Header() {
   const onMenuOutsideClick = (event: MouseEvent) => { }
 
   return (
-    <header className={styles.header}>
+    <>
       <TopBar onMount={(height: number) => setTopBarHeight(height)} />
-      <div className={styles.fixed} style={topBarHight ? { top: `${topBarHight - Math.min(scrollPosition, topBarHight)}px` } : {}}>
+      <header className={styles.header}>
         <div
-          className={styles.background}
-          style={containerHeight ? { height: `${containerHeight - Math.min(scrollPosition, containerHeight)}px` } : {}}
+          className={[styles.background, backgroundIsActive ? null : styles.backgroundHidden].join(' ').trim()}
         >
           <div ref={containerRef} className="container flex justify-between items-center mx-auto px-5 py-3">
             <FakeNavListDesktop className={styles.navBarBlack} color='white' />
@@ -101,8 +105,8 @@ export default function Header() {
             />
           </div>
         </div>
-      </div>
-      <BurgerMenu ref={contentRef} headerHeight={containerHeight} isOpen={isMenuOpen} />
-    </header >
+        <BurgerMenu ref={contentRef} headerHeight={containerHeight} isOpen={isMenuOpen} />
+      </header >
+    </>
   )
-}
+};

@@ -53,7 +53,8 @@
 }
 
 .subListWrapper {
-  position: fixed;
+  position: absolute;
+  top: 57px;
   left: 0;
   width: 100vw;
   background-color: var(--color-scheme-1-opacity-065);

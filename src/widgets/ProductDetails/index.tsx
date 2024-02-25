@@ -74,7 +74,16 @@ export default function ProductDetails({ product }: TProductDetails) {
           <ul className={['flex justify-center', styles.photoList].join(' ').trim()}>
             {
               product.img.map((img, index) => (
-                <li key={`${index}_photo`} className={[styles.photo, activeTab === index ? styles.active : ''].join(' ').trim()}>{renderPhoto(img)}</li>
+                <li
+                  key={`${index}_photo`}
+                  className={[
+                    styles.photo, activeTab === index
+                      ? styles.active
+                      : '',
+                  ].join(' ').trim()}
+                >
+                  {renderPhoto(img)}
+                </li>
               ))
             }
           </ul>
@@ -90,7 +99,12 @@ export default function ProductDetails({ product }: TProductDetails) {
               product.img.map((img, index) => (
                 <SwiperSlide key={`${index}_slide`} className={styles.swiperSlide}>
                   <button
-                    className={[styles.preview, activeTab === index ? styles.active : ''].join(' ').trim()}
+                    className={[
+                      styles.preview,
+                      activeTab === index
+                        ? styles.active
+                        : '',
+                    ].join(' ').trim()}
                     onClick={() => setActiveTab(index)}
                     role="button"
                   >
@@ -102,13 +116,23 @@ export default function ProductDetails({ product }: TProductDetails) {
           </Swiper>
         </div>
         <div className={styles.options}>
-          <div className={[styles.packaging, 'flex justify-between items-center'].join(' ').trim()}>
+          <div
+            className={[
+              'flex justify-between items-center',
+              styles.packaging,
+            ].join(' ').trim()}
+          >
             <p>Обьем упаковки:</p>
             <ul className='flex justify-between'>
               {
                 product.packaging.map((volume: number, index: number) => <li key={`${index}_volume`}>
                   <button
-                    className={['btn btn-main', activeTab === index ? 'active' : ''].join(' ').trim()}
+                    className={[
+                      'btn btn-main',
+                      activeTab === index
+                        ? 'active'
+                        : '',
+                    ].join(' ').trim()}
                     onClick={() => {
                       setActiveTab(index);
                       swiperRef.current?.swiper?.slideTo(index);
@@ -122,7 +146,15 @@ export default function ProductDetails({ product }: TProductDetails) {
           </div>
           <div className={styles.action}>
             <p className={styles.price}>{product.price} ₸</p>
-            <CButtonWave classNameButton={['hover-shadow btn btn-main btn-main--inverted', styles.toCart].join(' ').trim()} waveColor='rgba(255, 255, 255, .3)' >В корзину</CButtonWave>
+            <CButtonWave
+              classNameButton={[
+                'hover-shadow btn btn-main btn-main--inverted',
+                styles.toCart,
+              ].join(' ').trim()}
+              waveColor='rgba(255, 255, 255, .3)'
+            >
+              В корзину
+            </CButtonWave>
           </div>
           <div className={styles.item}>
             <p>Артикул:</p>

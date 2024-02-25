@@ -1,3 +1,13 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  background-color: var(--color-scheme-2);
+  /* overflow: hidden; */
+  z-index: 2;
+  box-shadow: var(--effect-shadow-bottom-1);
+}
+
 .background {
   position: absolute;
   top: 0;
@@ -6,10 +16,15 @@
   width: 100vw;
   background-color: var(--color-scheme-4);
   overflow: hidden;
+  transition: height .1s ease-in-out;
 
   @media(min-width: 1024px) {
     background-color: var(--color-scheme-1);
   }
+}
+
+.backgroundHidden {
+  height: 0px;
 }
 
 .navBarBlack {
@@ -27,16 +42,6 @@
   @media(min-width: 1536px) {
     transform: translate(403px);
   }
-}
-
-.fixed {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  background-color: var(--color-scheme-2);
-  /* overflow: hidden; */
-  z-index: 2;
-  box-shadow: var(--effect-shadow-bottom-1);
 }
 
 .logo {

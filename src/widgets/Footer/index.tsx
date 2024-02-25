@@ -4,7 +4,7 @@ import Image from 'next/image';
 import logo from 'assets/logo-white.svg';
 import { ConfigProvider, Divider } from 'antd';
 import { Collapse } from 'antd';
-import { TNavLink } from 'features/types';
+import { TNavLink } from 'shared/types';
 import styles from './Footer.module.css';
 import './Footer.css';
 

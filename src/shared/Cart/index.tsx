@@ -5,7 +5,7 @@ type TCCartProps = {
   classNameIcon?: string;
 }
 
-export default function CPhone({ className, classNameIcon }: TCCartProps) {
+export default function CCart({ className, classNameIcon }: TCCartProps) {
   return (
       <button className={
         [

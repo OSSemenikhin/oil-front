@@ -1,4 +1,4 @@
-import Layout from 'features/Layout';
+import Layout from 'shared/Layout';
 import ProductDetails from 'widgets/ProductDetails';
 import { TProduct } from 'types';
 

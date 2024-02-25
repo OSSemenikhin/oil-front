@@ -1,7 +1,7 @@
 import { useRef, forwardRef, useImperativeHandle } from 'react';
 import { Modal } from 'antd';
-import NavListMobile from 'features/NavListMobile';
-import RegionList from 'features/RegionList';
+import NavListMobile from '../../shared/NavListMobile';
+import RegionList from '../../shared/RegionList';
 import styles from './BurgerMenu.module.css'
 
 type TBurgerMenu = {

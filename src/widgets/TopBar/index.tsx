@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from 'store/features/topBarMenuSlice';
 // import { getLinks } from 'store/features/topBarMenuSlice';
-import { TNavLink } from 'features/types';
+import { TNavLink } from 'shared/types';
 import { TTopBarMenuState } from 'store/features/topBarMenuSlice';
-import RegionList from 'features/RegionList';
-import Actions from 'features/Actions';
+import RegionList from 'shared/RegionList';
+import Actions from '../../shared/Actions';
 import styles from './TopBar.module.css';
 
 type TTopBarProps = {

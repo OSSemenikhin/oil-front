@@ -1,6 +1,6 @@
 import CBurger from 'components/CBurger';
-import Search from 'features/Search';
-import Cart from 'features/Cart';
+import Search from 'shared/Search';
+import Cart from 'shared/Cart';
 import CPhone from 'components/CPhone';
 import styles from './Actions.module.css';
 

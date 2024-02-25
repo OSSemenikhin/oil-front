@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext } from 'next';
-import Layout from 'features/Layout';
+import Layout from 'shared/Layout';
 import { TPage } from 'types';
 import styles from './About.module.css';
 

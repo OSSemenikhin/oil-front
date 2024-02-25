@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { TNavLink } from 'features/types';
+import { TNavLink } from 'shared/types';
 import styles from './NavListDesktop.module.css'
 
 type TNavListDesktopProps = {
