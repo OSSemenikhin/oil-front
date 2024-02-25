@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
-import { getList } from '@/store/features/topBarMenuSlice';
+import { getList } from '@/widgets/Header/ui/TopBar/api/topBarMenuSlice';
 // import { getLinks } from 'store/features/topBarMenuSlice';
 import { TNavLink } from '@/types';
-import { TTopBarMenuState } from '@/store/features/topBarMenuSlice';
+import { TTopBarMenuState } from '@/widgets/Header/ui/TopBar/api/topBarMenuSlice';
 import RegionList from '@/widgets/Header/ui/TopBar/ui/RegionList';
 import Actions from '@/widgets/Header/ui/TopBar/ui/Actions';
 import styles from './TopBar.module.css';
