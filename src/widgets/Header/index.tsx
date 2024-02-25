@@ -8,7 +8,7 @@ import NavListDesktop from '@/features/NavListDesktop';
 import FakeNavListDesktop from '@/features/NavListDesktop/FakeNavListDesktop';
 import Actions from '@/features/Actions';
 import TopBar from '@/widgets/Header/ui/TopBar';
-import BurgerMenu from '@/features/BurgerMenu';
+import BurgerMenu from '@/widgets/Header/ui/BurgerMenu';
 import CBurger from '@/widgets/Header/ui/Burger';
 import styles from './Header.module.css';
 
