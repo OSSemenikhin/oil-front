@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import { useSelector, useDispatch } from 'react-redux';
+import { getHeight } from '@/shared/model/heroHeightSlice';
 import styles from './Hero.module.css';
 import './Hero.css';
 
@@ -38,6 +40,11 @@ export default function Hero() {
   const calculateWidth = () => {
     setWidth(Math.max(window.innerWidth, 760))
   }
+
+  const dispatch = useDispatch();
+  (() => {
+    dispatch(getHeight());
+  })();
 
   useEffect(() => {
     calculateWidth();

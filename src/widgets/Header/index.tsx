@@ -2,11 +2,13 @@ import { useState, useEffect, useRef, } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/app/assets/logo-red.svg';
-import NavListDesktop from '@/widgets/Header/ui/NavListDesktop';
-import FakeNavListDesktop from '@/widgets/Header/ui/NavListDesktop/FakeNavListDesktop';
+import { useSelector, useDispatch } from 'react-redux';
+import { getList } from '@/widgets/Header/model/topBarMenuSlice';
+import NavListDesktop from '@/features/NavListDesktop';
+import FakeNavListDesktop from '@/features/NavListDesktop/FakeNavListDesktop';
 import Actions from '@/features/Actions';
 import TopBar from '@/widgets/Header/ui/TopBar';
-import BurgerMenu from '@/widgets/Header/ui/BurgerMenu';
+import BurgerMenu from '@/features/BurgerMenu';
 import CBurger from '@/widgets/Header/ui/Burger';
 import styles from './Header.module.css';
 
@@ -19,6 +21,11 @@ export default function Header() {
   const [containerHeight, setContainerHeight] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // const dispatch = useDispatch();
+  // (() => {
+  //   dispatch(getList());
+  // })();
 
   const calculateHeight = () => {
     if (containerRef.current) {
