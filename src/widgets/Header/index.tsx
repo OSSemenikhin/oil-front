@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from 'assets/logo-red.svg';
+import logo from '@/assets/logo-red.svg';
 import NavListDesktop from '@/widgets/Header/ui/NavListDesktop';
 import FakeNavListDesktop from '@/widgets/Header/ui/NavListDesktop/FakeNavListDesktop';
 import Actions from '@/widgets/Header/ui/TopBar/ui/Actions';
@@ -50,7 +50,7 @@ export default function Header() {
         const newTopBarHeight = topBarHeight || 0;
         const newContainerHeight = containerRef.current.getBoundingClientRect().height;
 
-        if (window.scrollY > newTopBarHeight + newContainerHeight + 446) {
+        if (window.scrollY > newTopBarHeight + 446) {
           setBackgroundIsActive(false);
         } else {
           setBackgroundIsActive(true);
