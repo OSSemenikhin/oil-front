@@ -12,13 +12,18 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 78px;
   width: 100vw;
+  height: 61px;
   background-color: var(--color-scheme-4);
   overflow: hidden;
   transition: height .2s ease-in-out;
 
+  @media(min-width: 640px) {
+    height: 67px;
+  }
+
   @media(min-width: 1024px) {
+    height: 78px;
     background-color: var(--color-scheme-1);
   }
 }

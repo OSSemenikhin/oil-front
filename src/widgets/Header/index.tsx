@@ -58,8 +58,8 @@ export default function Header() {
     const handleScroll = () => {
       if (isTopBarMounted && containerRef.current) {
         const newTopBarHeight = topBarHeight || 0;
-        const newContainerHeight = containerRef.current.getBoundingClientRect().height;
-        const marginTop = newContainerHeight + height;
+        // const newContainerHeight = containerRef.current.getBoundingClientRect().height;
+        const marginTop = newTopBarHeight + height;
 
         if (window.scrollY > marginTop) {
           setBackgroundIsActive(false);
