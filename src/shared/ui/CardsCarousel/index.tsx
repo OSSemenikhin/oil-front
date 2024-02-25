@@ -4,9 +4,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
-import ProductCard, { TProduct } from '@/shared/ ui/CardsCarousel/ui/ProductCard';
-import NewsCard, { TNews } from '@/shared/ ui/CardsCarousel/ui/NewsCard';
-import ButtonWave from '@/shared/ ui/Buttons/ButtonWave';
+import ProductCard, { TProduct } from '@/shared/ui/CardsCarousel/ui/ProductCard';
+import NewsCard, { TNews } from '@/shared/ui/CardsCarousel/ui/NewsCard';
+import ButtonWave from '@/shared/ui/Buttons/ButtonWave';
 import styles from './CardsCarousel.module.css';
 import './CardsCarousel.css'
 

@@ -1,4 +1,4 @@
-import Layout from '@/shared/ ui/Layout';
+import Layout from '@/shared/ui/Layout';
 import ProductDetails from '@/widgets/ProductDetails';
 import { TProduct } from '@/shared/types';
 

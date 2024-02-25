@@ -1,5 +1,5 @@
-import CardsCarousel from "@/shared/ ui/CardsCarousel";
-import { TProduct } from "@/shared/ ui/CardsCarousel/ui/ProductCard";
+import CardsCarousel from "@/shared/ui/CardsCarousel";
+import { TProduct } from "@/shared/ui/CardsCarousel/ui/ProductCard";
 
 export default function TopPicks() {
   const card: TProduct = {
