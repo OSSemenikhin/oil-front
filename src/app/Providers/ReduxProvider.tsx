@@ -1,6 +1,6 @@
 "use client";
 
-import { store } from "@/app/store";
+import { Store } from "@/app/Store";
 import { Provider } from "react-redux";
 
 type TReduxProviderProps = {
@@ -9,6 +9,6 @@ type TReduxProviderProps = {
 
 export default function ReduxProvider({ children }: TReduxProviderProps) {
   return (
-    <Provider store={store}>{ children }</Provider>
+    <Provider store={Store}>{ children }</Provider>
   );
 }
