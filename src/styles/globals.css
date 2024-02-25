@@ -5,14 +5,14 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assets/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+  src: url('../app/assets/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Oswald';
-  src: url('../assets/fonts/Oswald/Oswald-Regular.ttf') format('truetype');
+  src: url('../app/assets/fonts/Oswald/Oswald-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

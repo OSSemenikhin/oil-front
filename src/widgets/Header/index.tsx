@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '@/assets/logo-red.svg';
+import logo from '@/app/assets/logo-red.svg';
 import NavListDesktop from '@/widgets/Header/ui/NavListDesktop';
 import FakeNavListDesktop from '@/widgets/Header/ui/NavListDesktop/FakeNavListDesktop';
 import Actions from '@/features/Actions';

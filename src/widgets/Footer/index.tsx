@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '@/assets/logo-white.svg';
+import logo from '@/app/assets/logo-white.svg';
 import { ConfigProvider, Divider } from 'antd';
 import { Collapse } from 'antd';
-import { TNavLink } from '@/types';
+import { TNavLink } from '@/shared/types';
 import styles from './Footer.module.css';
 import './Footer.css';
 

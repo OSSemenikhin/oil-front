@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Modal } from 'antd';
 import { EnvironmentOutlined } from '@ant-design/icons';
-import { TRegion } from '@/types';
+import { TRegion } from '@/shared/types';
 import styles from './RegionLIst.module.css';
 
 type TRegionListProps = {

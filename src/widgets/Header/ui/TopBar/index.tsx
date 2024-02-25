@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
-import { getList } from '@/widgets/Header/ui/TopBar/model/topBarMenuSlice';
+import { getList } from '@/widgets/Header/model/topBarMenuSlice';
 // import { getLinks } from 'store/features/topBarMenuSlice';
-import { TNavLink } from '@/types';
-import { TTopBarMenuState } from '@/widgets/Header/ui/TopBar/model/topBarMenuSlice';
+import { TNavLink } from '@/shared/types';
+import { TTopBarMenuState } from '@/widgets/Header/model/topBarMenuSlice';
 import RegionList from '@/features/RegionList';
 import Actions from '@/features/Actions';
 import styles from './TopBar.module.css';
@@ -52,10 +52,10 @@ export default function TopBar({ onMount }: TTopBarProps) {
   //     ],
   //   },
   // ];
-  // const dispatch = useDispatch();
-  // (() => {
-  //   dispatch(getList());
-  // })();
+  const dispatch = useDispatch();
+  (() => {
+    dispatch(getList());
+  })();
 
   // const list = useSelector((state: TTopBarMenuState) => state.topBarMenu?.list);
   // const list = 'list';
