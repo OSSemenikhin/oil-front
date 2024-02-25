@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TNavLink } from 'shared/types';
+import { TNavLink } from '@/types';
 
 export type TTopBarMenuState = {
   topBarMenu: { list: TNavLink[] };

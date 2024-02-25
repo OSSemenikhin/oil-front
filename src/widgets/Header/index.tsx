@@ -2,12 +2,12 @@ import { useState, useEffect, useRef, } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from 'assets/logo-red.svg';
-import NavListDesktop from '../../shared/NavListDesktop';
-import FakeNavListDesktop from '../../shared/NavListDesktop/FakeNavListDesktop';
-import Actions from '../../shared/Actions';
-import TopBar from '../../widgets/TopBar';
-import BurgerMenu from 'widgets/BurgerMenu';
-import CBurger from 'components/CBurger';
+import NavListDesktop from '@/widgets/Header/ui/NavListDesktop';
+import FakeNavListDesktop from '@/widgets/Header/ui/NavListDesktop/FakeNavListDesktop';
+import Actions from '@/widgets/Header/ui/TopBar/ui/Actions';
+import TopBar from '@/widgets/Header/ui/TopBar';
+import BurgerMenu from '@/widgets/Header/ui/BurgerMenu';
+import CBurger from '@/widgets/Header/ui/Burger';
 import styles from './Header.module.css';
 
 export default function Header() {

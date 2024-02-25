@@ -1,7 +1,6 @@
-import CBurger from 'components/CBurger';
-import Search from 'shared/Search';
-import Cart from 'shared/Cart';
-import CPhone from 'components/CPhone';
+import Search from './ui/Search';
+import Cart from './ui/Cart';
+import Phone from './ui/Phone';
 import styles from './Actions.module.css';
 
 type TActionsProps = {
@@ -29,7 +28,7 @@ export default function Actions({ classNameWrapper, classNameCartIcon, className
           ].join(' ').trim()
         }
       />
-      <CPhone
+      <Phone
         className={styles.phone}
         classNameIcon={classNamePhoneIcon}
       />

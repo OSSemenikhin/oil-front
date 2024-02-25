@@ -1,6 +1,6 @@
-import Layout from 'shared/Layout';
-import ProductDetails from 'widgets/ProductDetails';
-import { TProduct } from 'types';
+import Layout from '@/shared/Layout';
+import ProductDetails from '@/widgets/ProductDetails';
+import { TProduct } from '@/types';
 
 export default function Product() {
   const product: TProduct = {

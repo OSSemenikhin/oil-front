@@ -1,5 +1,5 @@
-import CardsCarousel from "shared/CardsCarousel";
-import { TProduct } from 'entities/ProductCard';
+import CardsCarousel from "@/shared/CardsCarousel";
+import { TProduct } from "@/shared/ProductCard";
 
 export default function TopPicks() {
   const card: TProduct = {

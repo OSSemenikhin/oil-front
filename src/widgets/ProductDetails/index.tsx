@@ -4,8 +4,8 @@ import { FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { TProduct } from 'types';
-import CButtonWave from 'components/Buttons/CButtonWave';
+import { TProduct } from '@/types';
+import CButtonWave from '@/shared/Buttons/CButtonWave';
 import styles from './ProductDetails.module.css';
 import './ProductDetails.css';
 

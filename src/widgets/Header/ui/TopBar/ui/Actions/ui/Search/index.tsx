@@ -10,7 +10,7 @@ type TSearchProps = {
   classNameButton?: string;
 }
 
-export default function CSearch({ classNameIcon, classNameWrapper, classNameInput, classNameButton }: TSearchProps) {
+export default function Search({ classNameIcon, classNameWrapper, classNameInput, classNameButton }: TSearchProps) {
   const [isSearchActive, setSearchActive] = useState<boolean>(false);
   const searchContainerRef = useRef<HTMLInputElement>(null);
   const searchInputRef = useRef<InputRef>(null);

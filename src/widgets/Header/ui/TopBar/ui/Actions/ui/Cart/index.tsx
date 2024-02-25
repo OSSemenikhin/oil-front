@@ -1,11 +1,11 @@
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
-type TCCartProps = {
+type TCartProps = {
   className?: string;
   classNameIcon?: string;
 }
 
-export default function CCart({ className, classNameIcon }: TCCartProps) {
+export default function Cart({ className, classNameIcon }: TCartProps) {
   return (
       <button className={
         [

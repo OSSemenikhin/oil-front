@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import Head from 'next/head'
-import Breadcrumbs from '../../shared/Breadcrumbs';
-import Header from 'widgets/Header';
-import Footer from 'widgets/Footer';
+import Breadcrumbs from '@/widgets/Breadcrumbs';
+import Header from '@/widgets/Header';
+import Footer from '@/widgets/Footer';
 import styles from './Layout.module.css';
 
 type LayoutProps = {

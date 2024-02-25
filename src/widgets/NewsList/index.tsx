@@ -1,5 +1,5 @@
-import CardsCarousel from "shared/CardsCarousel";
-import { TNews } from "entities/NewsCard";
+import CardsCarousel from "@/shared/CardsCarousel";
+import { TNews } from "@/widgets/NewsList/ui/NewsCard";
 
 export default function NewsList() {
   const card: TNews = {

@@ -1,8 +1,8 @@
 import { MenuProps, Menu, List, ConfigProvider } from 'antd';
 import Link from 'next/link';
 import { RightOutlined } from '@ant-design/icons';
-import CButtonWave from 'components/Buttons/CButtonWave';
-import { TNavLink } from 'shared/types';
+import CButtonWave from '@/shared/Buttons/CButtonWave';
+import { TNavLink } from '@/types';
 import styles from './NavListMobile.module.css'
 
 type MenuItem = Required<MenuProps>['items'][number];

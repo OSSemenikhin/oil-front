@@ -1,8 +1,8 @@
-import Layout from 'shared/Layout';
-import Hero from 'widgets/Hero';
-import NewArrivals from 'widgets/NewArrivals';
-import TopPicks from 'widgets/TopPicks';
-import NewsList from 'widgets/NewsList';
+import Layout from '@/shared/Layout';
+import Hero from '@/widgets/Hero';
+import NewArrivals from '@/widgets/NewArrivals';
+import TopPicks from '@/widgets/TopPicks';
+import NewsList from '@/widgets/NewsList';
 
 export default function Home() {
   return (
