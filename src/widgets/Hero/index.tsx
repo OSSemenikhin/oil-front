@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 import { useSelector, useDispatch } from 'react-redux';
-import { getHeight } from '@/app/Store/model/heroHeightSlice';
+import { setHeight } from '@/app/Store/model/heroHeightSlice';
 import styles from './Hero.module.css';
 import './Hero.css';
 
@@ -22,6 +22,8 @@ type TSlide = {
 }
 
 export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const slides: TSlide[] = [
     {
       path: 'slide1.jpg',
@@ -36,19 +38,26 @@ export default function Hero() {
   ];
 
   const [width, setWidth] = useState<number>(0);
+  const dispatch = useDispatch();
 
   const calculateWidth = () => {
     setWidth(Math.max(window.innerWidth, 760))
   }
 
-  const dispatch = useDispatch();
-  (() => {
-    dispatch(getHeight());
-  })();
+  const calculateHeight = () => {
+    if (containerRef.current) {
+      dispatch(setHeight(containerRef.current.clientHeight));
+    }
+  };
+
+  const calculateSizes = () => {
+    calculateWidth();
+    calculateHeight();
+  }
 
   useEffect(() => {
-    calculateWidth();
-    window.addEventListener('resize', calculateWidth);
+    calculateSizes();
+    window.addEventListener('resize', calculateSizes);
   }, []);
 
   const paginationOptions: TPaginationOptions = {
@@ -59,7 +68,7 @@ export default function Hero() {
   };
 
   return (
-    <section className={styles.hero}>
+    <section ref={containerRef} className={styles.hero}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         autoplay={{delay: 5000, disableOnInteraction: true}}

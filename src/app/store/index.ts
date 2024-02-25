@@ -5,7 +5,7 @@ import heroHeightSlice from "@/app/Store/model/heroHeightSlice";
 export const Store = configureStore({
   reducer: {
     topBarMenu: topBarMenuReducer,
-    heroHeigh: heroHeightSlice,
+    heroHeight: heroHeightSlice,
   }
 });
 

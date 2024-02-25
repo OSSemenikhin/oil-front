@@ -4,15 +4,18 @@ import Link from 'next/link';
 import logo from '@/app/assets/logo-red.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '@/app/Store/model/topBarMenuSlice';
+import { RootState } from '@/app/Store/';
 import NavListDesktop from '@/features/NavListDesktop';
 import FakeNavListDesktop from '@/features/NavListDesktop/FakeNavListDesktop';
 import Actions from '@/features/Actions';
 import TopBar from '@/widgets/Header/ui/TopBar';
 import BurgerMenu from '@/widgets/Header/ui/BurgerMenu';
-import CBurger from '@/widgets/Header/ui/Burger';
+import Burger from '@/widgets/Header/ui/Burger';
 import styles from './Header.module.css';
 
 export default function Header() {
+  const height = useSelector((state: RootState) => state.heroHeight.height);
+
   const [backgroundIsActive, setBackgroundIsActive] = useState(true);
   const [isTopBarMounted, setTopBarMounted] = useState(false);
   const [topBarHeight, setTopBarHeight] = useState<number>(0);
@@ -56,8 +59,9 @@ export default function Header() {
       if (isTopBarMounted && containerRef.current) {
         const newTopBarHeight = topBarHeight || 0;
         const newContainerHeight = containerRef.current.getBoundingClientRect().height;
+        const marginTop = newContainerHeight + height;
 
-        if (window.scrollY > newTopBarHeight + 446) {
+        if (window.scrollY > marginTop) {
           setBackgroundIsActive(false);
         } else {
           setBackgroundIsActive(true);
@@ -69,7 +73,7 @@ export default function Header() {
     return () => {
       document.removeEventListener('scroll', handleScroll);
     };
-  }, [isTopBarMounted, topBarHeight]);
+  }, [isTopBarMounted, topBarHeight, height]);
 
   const onOpenMenuCallback = () => {
     if (scrollPosition < containerHeight / 2) {
@@ -113,7 +117,7 @@ export default function Header() {
                 classNamePhoneIcon={styles.phone}
                 classNameSearchIcon={styles.search}
               />
-              <CBurger
+              <Burger
                 onButtonClick={() => setMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)}
                 isMenuOpen={isMenuOpen}
                 onOpenCallack={() => onOpenMenuCallback()}

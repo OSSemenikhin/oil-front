@@ -8,11 +8,11 @@ export const heroHeightSlice = createSlice({
   name: "heroHeightSlice",
   initialState: { height: 0 },
   reducers: {
-    getHeight: () => {
-      console.log("get height");
+    setHeight: (state, action: PayloadAction<number>) => {
+      return { height: action.payload };
     }
   },
 });
 
-export const { getHeight } = heroHeightSlice.actions;
+export const { setHeight } = heroHeightSlice.actions;
 export default heroHeightSlice.reducer;
