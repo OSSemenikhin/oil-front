@@ -4,6 +4,7 @@ import {
   TextInput,
   FunctionField,
   SelectInput,
+  NumberInput,
   required,
   Toolbar,
   SaveButton,
@@ -39,8 +40,8 @@ export default function AboutForm({ type, record }: TAboutFormProps) {
     setValues({ ...values, content: content });
   };
 
-  const handleInput = (value: any, field: 'menu' | 'route') => {
-    setValues(prevValues => {
+  const handleInput = (value: any, field: 'title' | 'href' | 'order') => {
+    setValues((prevValues: any) => {
       const newValues = { ...prevValues };
       newValues[field] = value.nativeEvent.target.value;
       return newValues;
@@ -66,15 +67,21 @@ export default function AboutForm({ type, record }: TAboutFormProps) {
   return (
     <SimpleForm record={values} toolbar={toolbar()}>
       <TextInput
-        onChange={(value: any) => handleInput(value, 'menu')}
-        source="menu"
+        onChange={(value: any) => handleInput(value, 'title')}
+        source="title"
         label="Название в меню"
         validate={required()}
       />
       <TextInput
-        onChange={(value: string) => handleInput(value, 'route')}
-        source="route"
+        onChange={(value: string) => handleInput(value, 'href')}
+        source="href"
         label="Путь в адресной строке"
+        validate={required()}
+      />
+      <NumberInput
+        onChange={(value: string) => handleInput(value, 'order')}
+        source="order"
+        label="Порядок"
         validate={required()}
       />
       <SelectInput
