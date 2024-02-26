@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext } from 'next';
 import Layout from '@/shared/ui/Layout';
-import { TPage } from '@/shared/types';
+import { TPage } from '@/shared/model/types';
 import styles from './About.module.css';
 
 type TAbout = {

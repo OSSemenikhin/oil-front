@@ -9,7 +9,7 @@ import NavListDesktop from '@/features/NavListDesktop';
 import FakeNavListDesktop from '@/features/NavListDesktop/FakeNavListDesktop';
 import Actions from '@/features/Actions';
 import TopBar from '@/widgets/Header/ui/TopBar';
-import { TNavLink } from '@/shared/types';
+import { TNavLink } from '@/shared/model/types';
 import BurgerMenu from '@/widgets/Header/ui/BurgerMenu';
 import Burger from '@/widgets/Header/ui/Burger';
 import styles from './Header.module.css';

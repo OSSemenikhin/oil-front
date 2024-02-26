@@ -78,7 +78,7 @@ export default function AboutForm({ type, record }: TAboutFormProps) {
         label="Путь в адресной строке"
         validate={required()}
       />
-      <NumberInput
+      <TextInput
         onChange={(value: string) => handleInput(value, 'order')}
         source="order"
         label="Порядок"
@@ -87,6 +87,15 @@ export default function AboutForm({ type, record }: TAboutFormProps) {
       <SelectInput
         source="topBar"
         label="Отображать в шапке"
+        validate={required()}
+        choices={[
+          { id: 0, name: 'нет', default: true },
+          { id: 1, name: 'да' },
+        ]}
+      />
+      <SelectInput
+        source="published"
+        label="Опубликовано"
         validate={required()}
         choices={[
           { id: 0, name: 'нет', default: true },

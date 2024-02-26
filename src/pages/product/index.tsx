@@ -1,6 +1,6 @@
 import Layout from '@/shared/ui/Layout';
 import ProductDetails from '@/widgets/ProductDetails';
-import { TProduct } from '@/shared/types';
+import { TProduct } from '@/shared/model/types';
 
 export default function Product() {
   const product: TProduct = {

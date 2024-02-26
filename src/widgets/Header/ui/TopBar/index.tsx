@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { TNavLink } from '@/shared/types';
+import { TNavLink } from '@/shared/model/types';
 import RegionList from '@/features/RegionList';
 import Actions from '@/features/Actions';
 import styles from './TopBar.module.css';
