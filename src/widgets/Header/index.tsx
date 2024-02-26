@@ -14,7 +14,8 @@ import Burger from '@/widgets/Header/ui/Burger';
 import styles from './Header.module.css';
 
 export default function Header() {
-  const height = useSelector((state: RootState) => state.heroHeight.height);
+  const heroHeight = useSelector((state: RootState) => state.heroHeight.height);
+  const breadcrumbsHeight = useSelector((state: RootState) => state.breadcrumbsHeight.height);
 
   const [backgroundIsActive, setBackgroundIsActive] = useState(true);
   const [isTopBarMounted, setTopBarMounted] = useState(false);
@@ -59,7 +60,7 @@ export default function Header() {
       if (isTopBarMounted && containerRef.current) {
         const newTopBarHeight = topBarHeight || 0;
         // const newContainerHeight = containerRef.current.getBoundingClientRect().height;
-        const marginTop = newTopBarHeight + height;
+        const marginTop = newTopBarHeight + heroHeight + breadcrumbsHeight;
 
         if (window.scrollY > marginTop) {
           setBackgroundIsActive(false);
@@ -73,7 +74,7 @@ export default function Header() {
     return () => {
       document.removeEventListener('scroll', handleScroll);
     };
-  }, [isTopBarMounted, topBarHeight, height]);
+  }, [isTopBarMounted, topBarHeight, heroHeight, breadcrumbsHeight]);
 
   const onOpenMenuCallback = () => {
     if (scrollPosition < containerHeight / 2) {
