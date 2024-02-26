@@ -58,6 +58,10 @@ export default function Hero() {
   useEffect(() => {
     calculateSizes();
     window.addEventListener('resize', calculateSizes);
+
+    return () => {
+      dispatch(setHeight(0));
+    };
   }, []);
 
   const paginationOptions: TPaginationOptions = {
@@ -71,14 +75,14 @@ export default function Hero() {
     <section ref={containerRef} className={styles.hero}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-        autoplay={{delay: 5000, disableOnInteraction: true}}
+        autoplay={{ delay: 5000, disableOnInteraction: true }}
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
         speed={2000}
         pagination={paginationOptions}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
       >
         {
           slides.map((slide, index) => (
