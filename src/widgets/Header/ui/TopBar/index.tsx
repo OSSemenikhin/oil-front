@@ -1,60 +1,16 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import Link from 'next/link';
-// import { getLinks } from 'store/features/topBarMenuSlice';
 import { TNavLink } from '@/shared/types';
-import { TTopBarMenuState } from '@/app/Store/model/topBarMenuSlice';
 import RegionList from '@/features/RegionList';
 import Actions from '@/features/Actions';
 import styles from './TopBar.module.css';
 
 type TTopBarProps = {
   onMount: (hight: number) => void;
+  topBarMenu: TNavLink[],
 }
 
-export default function TopBar({ onMount }: TTopBarProps) {
-  // const list: TNavLink[] = [
-  //   {
-  //     title: 'O нас',
-  //     href: '/about/us',
-  //     subItems: [
-  //       {
-  //         title: 'Подпункт_1',
-  //         href: '#',
-  //       },
-  //       {
-  //         title: 'Подпункт_2',
-  //         href: '#',
-  //       },
-  //       {
-  //         title: 'Подпункт_3',
-  //         href: '#',
-  //       }
-  //     ],
-  //   },
-  //   {
-  //     title: 'Доставка',
-  //     href: '/about/delivery',
-  //     subItems: [
-  //       {
-  //         title: 'Подпункт_1',
-  //         href: '#',
-  //       },
-  //       {
-  //         title: 'Подпункт_2',
-  //         href: '#',
-  //       },
-  //       {
-  //         title: 'Подпункт_3',
-  //         href: '#',
-  //       }
-  //     ],
-  //   },
-  // ];
-
-  // const list = useSelector((state: TTopBarMenuState) => state.topBarMenu?.list);
-  // const list = 'list';
-  // console.log(list);
-
+export default function TopBar({ onMount, topBarMenu }: TTopBarProps) {
   const topBarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -75,17 +31,17 @@ export default function TopBar({ onMount }: TTopBarProps) {
         <div className='flex'>
           <ul className='flex items-center gap-x-5 px-5'>
             {
-              // list.map((link, index) => (
-              //   <li key={`${index}_link`}>
-              //     <Link
-              //       className={[styles.link, 'hover-brightness'].join(' ').trim()}
-              //       href={link.href}
-              //       prefetch
-              //     >
-              //       {link.title}
-              //     </Link>
-              //   </li>
-              // ))
+              topBarMenu.map((link, index) => (
+                <li key={`${index}_link`}>
+                  <Link
+                    className={[styles.link, 'hover-brightness'].join(' ').trim()}
+                    href={`/about/${link.href}`}
+                    prefetch
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))
             }
           </ul>
           <Actions

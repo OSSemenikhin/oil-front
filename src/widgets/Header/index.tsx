@@ -2,13 +2,14 @@ import { useState, useEffect, useRef, } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/app/assets/logo-red.svg';
-import { useSelector, useDispatch } from 'react-redux';
-import { getList } from '@/app/Store/model/topBarMenuSlice';
+import { useSelector } from 'react-redux';
+import getTopBarMenu from './api/topBarMenu';
 import { RootState } from '@/app/Store/';
 import NavListDesktop from '@/features/NavListDesktop';
 import FakeNavListDesktop from '@/features/NavListDesktop/FakeNavListDesktop';
 import Actions from '@/features/Actions';
 import TopBar from '@/widgets/Header/ui/TopBar';
+import { TNavLink } from '@/shared/types';
 import BurgerMenu from '@/widgets/Header/ui/BurgerMenu';
 import Burger from '@/widgets/Header/ui/Burger';
 import styles from './Header.module.css';
@@ -17,6 +18,7 @@ export default function Header() {
   const heroHeight = useSelector((state: RootState) => state.heroHeight.height);
   const breadcrumbsHeight = useSelector((state: RootState) => state.breadcrumbsHeight.height);
 
+  const [topBarMenu, setTopBarMenu] = useState<TNavLink[]>([]);
   const [backgroundIsActive, setBackgroundIsActive] = useState(true);
   const [isTopBarMounted, setTopBarMounted] = useState(false);
   const [topBarHeight, setTopBarHeight] = useState<number>(0);
@@ -25,11 +27,6 @@ export default function Header() {
   const [containerHeight, setContainerHeight] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-
-  // const dispatch = useDispatch();
-  // (() => {
-  //   dispatch(getList());
-  // })();
 
   const calculateHeight = () => {
     if (containerRef.current) {
@@ -44,7 +41,13 @@ export default function Header() {
     }
   };
 
+  const loadTopBarMenu = async () => {
+    const menu = await getTopBarMenu();
+    setTopBarMenu(menu);
+  }
+
   useEffect(() => {
+    loadTopBarMenu();
     calculateHeight();
     window.addEventListener('resize', calculateHeight);
     window.addEventListener('resize', closeModal);
@@ -88,10 +91,12 @@ export default function Header() {
 
   return (
     <>
-      <TopBar onMount={(height: number) => {
-        setTopBarHeight(height);
-        setTopBarMounted(true);
-      }} />
+      <TopBar
+        topBarMenu={topBarMenu}
+        onMount={(height: number) => {
+          setTopBarHeight(height);
+          setTopBarMounted(true);
+        }} />
 
       {isTopBarMounted && (
         <header className={styles.header}>
