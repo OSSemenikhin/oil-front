@@ -124,7 +124,7 @@ export default function Header() {
               />
             </div>
           </div>
-          <BurgerMenu ref={contentRef} headerHeight={containerHeight} isOpen={isMenuOpen} />
+          <BurgerMenu ref={contentRef} headerHeight={containerHeight} isOpen={isMenuOpen} onNavigate={() => setMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)}/>
         </header >
       )}
     </>

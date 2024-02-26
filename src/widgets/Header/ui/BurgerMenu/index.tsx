@@ -7,9 +7,10 @@ import styles from './BurgerMenu.module.css'
 type TBurgerMenu = {
   headerHeight: number;
   isOpen: boolean;
+  onNavigate: () => void;
 }
 
-export default forwardRef(function BurgerMenu({ headerHeight, isOpen }: TBurgerMenu, ref) {
+export default forwardRef(function BurgerMenu({ headerHeight, isOpen, onNavigate }: TBurgerMenu, ref) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({
@@ -36,7 +37,7 @@ export default forwardRef(function BurgerMenu({ headerHeight, isOpen }: TBurgerM
         style={{ paddingTop: `${headerHeight}px` }}
       >
         <RegionList classNameWrapper={styles.region}/>
-        <NavListMobile />
+        <NavListMobile onNavigate={() => onNavigate()}/>
       </div>
     </Modal>
   );

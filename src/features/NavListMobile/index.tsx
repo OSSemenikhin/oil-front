@@ -1,13 +1,17 @@
 import { MenuProps, Menu, List, ConfigProvider } from 'antd';
 import Link from 'next/link';
 import { RightOutlined } from '@ant-design/icons';
-import CButtonWave from '@/shared/ui/Buttons/ButtonWave';
+import ButtonWave from '@/shared/ui/Buttons/ButtonWave';
 import { TNavLink } from '@/shared/types';
 import styles from './NavListMobile.module.css'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
-export default function NavListMobile() {
+type TNavListMobile = {
+  onNavigate: () => void;
+}
+
+export default function NavListMobile({onNavigate}: TNavListMobile) {
   const list: TNavLink[] = [
     {
       title: 'Пункт_1',
@@ -162,7 +166,11 @@ export default function NavListMobile() {
         dataSource={list.map(item => item.title)}
         renderItem={(item, index) => (
           <List.Item className={styles.item}>
-            <CButtonWave classNameButton={styles.button} waveClassName={styles.wbutton}>
+            <ButtonWave
+              onClick={() => onNavigate()}
+              classNameButton={styles.button}
+              waveClassName={styles.wbutton}
+            >
               <Link
                 className={
                   [
@@ -174,7 +182,7 @@ export default function NavListMobile() {
               >{item}
                 <RightOutlined className={styles.icon} />
               </Link>
-            </CButtonWave>
+            </ButtonWave>
           </List.Item>
         )}
       />
